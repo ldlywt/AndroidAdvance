@@ -1,4 +1,4 @@
-package com.ldlywt.androidadvancedemo.aspect;
+package com.ldlywt.androidadvancedemo.utils;
 
 import android.content.Context;
 import android.content.pm.PackageManager;

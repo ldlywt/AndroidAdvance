@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.ldlywt.androidadvancedemo.aspect.CheckLogin;
 import com.ldlywt.androidadvancedemo.aspect.CheckNetwork;
 import com.ldlywt.androidadvancedemo.aspect.CheckPermission;
 
@@ -33,6 +34,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn2:
                 checkNetwork();
                 break;
+            case R.id.btn3:
+                checkLogin();
+                break;
+            case R.id.btn4:
+
+                break;
+            case R.id.btn5:
+
+                break;
         }
     }
 
@@ -45,5 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @CheckNetwork()
     public void checkNetwork(){
         Log.i(TAG,"检查手机是否有网");
+    }
+
+    @CheckLogin()
+    public void checkLogin(){
+        Log.i(TAG,"检查用户是否登录");
     }
 }
