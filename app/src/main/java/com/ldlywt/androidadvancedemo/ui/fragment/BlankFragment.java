@@ -9,11 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.ldlywt.androidadvancedemo.R;
-import com.ldlywt.androidadvancedemo.ioc.annomation.resouces.StringById;
-import com.ldlywt.androidadvancedemo.ioc.annomation.resouces.ViewById;
-import com.ldlywt.androidadvancedemo.ioc.manager.InjectManager;
+import com.ldlywt.ioc.annomation.resouces.StringById;
+import com.ldlywt.ioc.annomation.resouces.ViewById;
+import com.ldlywt.ioc.manager.InjectManager;
 
 
 /**

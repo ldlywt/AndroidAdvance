@@ -5,8 +5,8 @@ import android.os.Bundle;
 
 import com.ldlywt.androidadvancedemo.ui.fragment.BlankFragment;
 import com.ldlywt.androidadvancedemo.R;
-import com.ldlywt.androidadvancedemo.ioc.annomation.resouces.ContentViewById;
-import com.ldlywt.androidadvancedemo.ioc.manager.InjectManager;
+import com.ldlywt.ioc.annomation.resouces.ContentViewById;
+import com.ldlywt.ioc.manager.InjectManager;
 
 @ContentViewById(R.layout.activity_my_fragment)
 public class MyFragmentActivity extends AppCompatActivity {

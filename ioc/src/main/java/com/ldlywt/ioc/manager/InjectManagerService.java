@@ -1,17 +1,17 @@
-package com.ldlywt.androidadvancedemo.ioc.manager;
+package com.ldlywt.ioc.manager;
 
 import android.view.View;
 
-import com.ldlywt.androidadvancedemo.ioc.annomation.event.OnClick;
-import com.ldlywt.androidadvancedemo.ioc.annomation.event.OnLongClick;
-import com.ldlywt.androidadvancedemo.ioc.annomation.network.CheckNet;
-import com.ldlywt.androidadvancedemo.ioc.annomation.resouces.ColorById;
-import com.ldlywt.androidadvancedemo.ioc.annomation.resouces.ContentViewById;
-import com.ldlywt.androidadvancedemo.ioc.annomation.resouces.StringById;
-import com.ldlywt.androidadvancedemo.ioc.annomation.resouces.ViewById;
-import com.ldlywt.androidadvancedemo.ioc.listener.DeclaredOnClickListener;
-import com.ldlywt.androidadvancedemo.ioc.listener.DeclaredOnLongClickListener;
-import com.ldlywt.androidadvancedemo.ioc.view.ViewManager;
+import com.ldlywt.ioc.annomation.event.OnClick;
+import com.ldlywt.ioc.annomation.event.OnLongClick;
+import com.ldlywt.ioc.annomation.network.CheckNet;
+import com.ldlywt.ioc.annomation.resouces.ColorById;
+import com.ldlywt.ioc.annomation.resouces.ContentViewById;
+import com.ldlywt.ioc.annomation.resouces.StringById;
+import com.ldlywt.ioc.annomation.resouces.ViewById;
+import com.ldlywt.ioc.listener.DeclaredOnClickListener;
+import com.ldlywt.ioc.listener.DeclaredOnLongClickListener;
+import com.ldlywt.ioc.view.ViewManager;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

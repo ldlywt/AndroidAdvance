@@ -1,11 +1,9 @@
-package com.ldlywt.androidadvancedemo.ioc.listener;
+package com.ldlywt.ioc.listener;
 
 import android.view.View;
 import android.widget.Toast;
+import com.ldlywt.ioc.NetUtils;
 
-import com.ldlywt.androidadvancedemo.utils.NetworkUtils;
-
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
@@ -33,7 +31,7 @@ public class DeclaredOnLongClickListener implements View.OnLongClickListener {
     @Override
     public boolean onLongClick(View v) {
         if (mIsCheckNet) {
-            if (!NetworkUtils.isNetworkAvailable(v.getContext())) {
+            if (!NetUtils.isNetworkAvailable(v.getContext())) {
                 Toast.makeText(v.getContext(), "网络不可用", Toast.LENGTH_SHORT).show();
                 return true;
             }

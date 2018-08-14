@@ -1,8 +1,10 @@
-package com.ldlywt.androidadvancedemo.ioc.listener;
+package com.ldlywt.ioc.listener;
 
 import android.view.View;
 import android.widget.Toast;
-import com.ldlywt.androidadvancedemo.utils.NetworkUtils;
+
+
+import com.ldlywt.ioc.NetUtils;
 
 import java.lang.reflect.Method;
 
@@ -30,7 +32,7 @@ public class DeclaredOnClickListener implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (mIsCheckNet) {
-            if (!NetworkUtils.isNetworkAvailable(v.getContext())) {
+            if (!NetUtils.isNetworkAvailable(v.getContext())) {
                 Toast.makeText(v.getContext(), "网络不可用", Toast.LENGTH_SHORT).show();
                 return;
             }

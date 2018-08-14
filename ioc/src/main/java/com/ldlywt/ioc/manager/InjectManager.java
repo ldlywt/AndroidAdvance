@@ -1,10 +1,10 @@
-package com.ldlywt.androidadvancedemo.ioc.manager;
+package com.ldlywt.ioc.manager;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
-import com.ldlywt.androidadvancedemo.ioc.view.ViewManager;
+import com.ldlywt.ioc.view.ViewManager;
 
 /**
  * <pre>

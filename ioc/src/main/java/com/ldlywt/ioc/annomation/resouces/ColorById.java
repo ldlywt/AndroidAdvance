@@ -1,4 +1,4 @@
-package com.ldlywt.androidadvancedemo.ioc.annomation.event;
+package com.ldlywt.ioc.annomation.resouces;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -14,8 +14,8 @@ import java.lang.annotation.Target;
  *     version: 1.0
  * </pre>
  */
-@Target(ElementType.METHOD)
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface OnLongClick {
-    int[] value();
+public @interface ColorById {
+    int value();
 }

@@ -1,4 +1,4 @@
-package com.ldlywt.androidadvancedemo.ioc.annomation.resouces;
+package com.ldlywt.ioc.annomation.resouces;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -14,8 +14,8 @@ import java.lang.annotation.Target;
  *     version: 1.0
  * </pre>
  */
-@Target(ElementType.TYPE)
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ContentViewById {
+public @interface ViewById {
     int value();
 }

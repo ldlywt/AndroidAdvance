@@ -1,4 +1,4 @@
-package com.ldlywt.androidadvancedemo.ioc.annomation.network;
+package com.ldlywt.ioc.annomation.network;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

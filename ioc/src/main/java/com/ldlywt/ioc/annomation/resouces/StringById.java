@@ -1,4 +1,4 @@
-package com.ldlywt.androidadvancedemo.ioc.annomation.resouces;
+package com.ldlywt.ioc.annomation.resouces;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -7,16 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.ldlywt.androidadvancedemo.R;
-import com.ldlywt.androidadvancedemo.ioc.annomation.event.OnClick;
-import com.ldlywt.androidadvancedemo.ioc.annomation.event.OnLongClick;
-import com.ldlywt.androidadvancedemo.ioc.annomation.network.CheckNet;
-import com.ldlywt.androidadvancedemo.ioc.annomation.resouces.ColorById;
-import com.ldlywt.androidadvancedemo.ioc.annomation.resouces.ContentViewById;
-import com.ldlywt.androidadvancedemo.ioc.annomation.resouces.StringById;
-import com.ldlywt.androidadvancedemo.ioc.annomation.resouces.ViewById;
-import com.ldlywt.androidadvancedemo.ioc.manager.InjectManager;
+import com.ldlywt.ioc.annomation.event.OnClick;
+import com.ldlywt.ioc.annomation.event.OnLongClick;
+import com.ldlywt.ioc.annomation.network.CheckNet;
+import com.ldlywt.ioc.annomation.resouces.ColorById;
+import com.ldlywt.ioc.annomation.resouces.ContentViewById;
+import com.ldlywt.ioc.annomation.resouces.StringById;
+import com.ldlywt.ioc.annomation.resouces.ViewById;
+import com.ldlywt.ioc.manager.InjectManager;
 
 @ContentViewById(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
