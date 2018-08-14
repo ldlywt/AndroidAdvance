@@ -20,13 +20,11 @@ public class DeclaredOnClickListener implements View.OnClickListener {
     private Method mMethod;
     private Object mObject;
     private boolean mIsCheckNet;
-    private View mView;
 
-    public DeclaredOnClickListener(Method method, Object object, boolean isCheckNet, View view) {
+    public DeclaredOnClickListener(Method method, Object object, boolean isCheckNet) {
         this.mMethod = method;
         this.mObject = object;
         this.mIsCheckNet = isCheckNet;
-        this.mView = view;
     }
 
     @Override
@@ -39,9 +37,14 @@ public class DeclaredOnClickListener implements View.OnClickListener {
         }
         try {
             mMethod.setAccessible(true);
-            mMethod.invoke(mObject, mView);
+            mMethod.invoke(mObject, v);
+
         } catch (Exception e) {
-            e.printStackTrace();
+            try {
+                mMethod.invoke(mObject, (Object) null);
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
         }
 
     }

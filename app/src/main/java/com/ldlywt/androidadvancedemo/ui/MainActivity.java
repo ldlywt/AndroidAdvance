@@ -1,14 +1,14 @@
-package com.ldlywt.androidadvancedemo;
+package com.ldlywt.androidadvancedemo.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.ioc.annomation.event.OnClick;
 import com.ldlywt.androidadvancedemo.ioc.annomation.event.OnLongClick;
 import com.ldlywt.androidadvancedemo.ioc.annomation.network.CheckNet;
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, AspectActivity.class));
                 break;
             case R.id.btn2:
-                Toast.makeText(this, "点击了按钮222", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, MyFragmentActivity.class));
                 break;
             case R.id.btn3:
                 Toast.makeText(this, "点击了按钮3333", Toast.LENGTH_SHORT).show();

@@ -127,7 +127,7 @@ public class InjectManagerService {
                         View view = viewManager.findViewById(viewId);
                         boolean isCheckNet = method.getAnnotation(CheckNet.class) != null;
                         if (view != null) {
-                            view.setOnClickListener(new DeclaredOnClickListener(method, object, isCheckNet, view));
+                            view.setOnClickListener(new DeclaredOnClickListener(method, object, isCheckNet));
                         }
                     }
                 }

@@ -1,4 +1,4 @@
-package com.ldlywt.androidadvancedemo;
+package com.ldlywt.androidadvancedemo.ui;
 
 import android.Manifest;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.aspect.BehaviorTrace;
 import com.ldlywt.androidadvancedemo.aspect.CheckLogin;
 import com.ldlywt.androidadvancedemo.aspect.CheckNetwork;
