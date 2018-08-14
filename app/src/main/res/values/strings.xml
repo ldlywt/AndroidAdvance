@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidAdvanceDemo</string>
+    <string name="ioc">我是来自自定义的IOC框架</string>
 </resources>

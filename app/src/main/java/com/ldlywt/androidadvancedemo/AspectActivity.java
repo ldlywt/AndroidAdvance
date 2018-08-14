@@ -10,6 +10,7 @@ import com.ldlywt.androidadvancedemo.aspect.BehaviorTrace;
 import com.ldlywt.androidadvancedemo.aspect.CheckLogin;
 import com.ldlywt.androidadvancedemo.aspect.CheckNetwork;
 import com.ldlywt.androidadvancedemo.aspect.CheckPermission;
+import com.ldlywt.androidadvancedemo.utils.NetworkUtils;
 
 /**
  * AOP主要使用场景
@@ -61,13 +62,22 @@ public class AspectActivity extends AppCompatActivity implements View.OnClickLis
         Log.i(TAG,"检查权限");
     }
 
-    @CheckNetwork()
-    public void checkNetwork(){
-        Log.i(TAG,"检查手机是否有网");
-    }
-
     @CheckLogin()
     public void checkLogin(){
         Log.i(TAG,"检查用户是否登录");
+    }
+
+    @CheckNetwork()
+    public void checkNetwork(){
+        Log.i(TAG,"进入下一个Activity");
+    }
+
+
+    public void checkNetworkNormal(){
+        if (NetworkUtils.isNetworkAvailable(this)) {
+            Log.i(TAG, "手机有网，可以进入下一个页面");
+        } else {
+            Log.i(TAG,"请检查手机网络设置");
+        }
     }
 }

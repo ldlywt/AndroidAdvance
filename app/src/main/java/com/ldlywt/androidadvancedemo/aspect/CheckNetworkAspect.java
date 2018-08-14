@@ -32,7 +32,7 @@ public class CheckNetworkAspect {
 
     /**
      * 找到处理的切点
-     * * *(..)  可以处理CheckLogin这个类所有的方法
+     *   * *(..)  “**”表示是任意包名   “..”表示任意类型任意多个参数
      */
     @Pointcut("execution(@com.ldlywt.androidadvancedemo.aspect.CheckNetwork  * *(..))")
     public void executionCheckNetwork() {
@@ -62,7 +62,6 @@ public class CheckNetworkAspect {
 
     /**
      * 通过对象获取上下文
-     *
      */
     private Context getContext(Object object) {
         if (object instanceof Activity) {

@@ -1,0 +1,33 @@
+package com.ldlywt.androidadvancedemo.ioc.manager;
+
+import android.app.Activity;
+import android.support.v4.app.Fragment;
+
+import com.ldlywt.androidadvancedemo.ioc.view.ViewManager;
+
+/**
+ * <pre>
+ *     author : lex
+ *     e-mail : ldlywt@163.com
+ *     time   : 2018/08/14
+ *     desc   :
+ *     version: 1.0
+ * </pre>
+ */
+public class InjectManager {
+
+    public static void inject(Activity activity) {
+        inject(new ViewManager(activity), activity);
+    }
+
+    public static void inject(Fragment fragment) {
+        inject(new ViewManager(fragment), fragment);
+    }
+
+    private static void inject(ViewManager viewManager, Object object) {
+        InjectManagerService.injectContentView(viewManager, object);
+        InjectManagerService.injectField(viewManager, object);
+        InjectManagerService.injectEvent(viewManager, object);
+    }
+
+}
