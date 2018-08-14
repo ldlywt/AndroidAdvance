@@ -2,6 +2,7 @@ package com.ldlywt.androidadvancedemo.ioc.manager;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;
+import android.view.View;
 
 import com.ldlywt.androidadvancedemo.ioc.view.ViewManager;
 
@@ -22,6 +23,10 @@ public class InjectManager {
 
     public static void inject(Fragment fragment) {
         inject(new ViewManager(fragment), fragment);
+    }
+
+    public static void inject(View view) {
+        inject(new ViewManager(view), view);
     }
 
     private static void inject(ViewManager viewManager, Object object) {
