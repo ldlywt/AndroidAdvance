@@ -24,3 +24,31 @@
     @CheckNet()
     public void openIoc(View view) {}
 ```
+
+### 手写图片加载框架
+初始化
+```
+    private void initImageLoader() {
+        ImageLoaderConfig config = new ImageLoaderConfig()
+                .setLoadingPlaceholder(R.mipmap.loading)
+                .setNotFoundPlaceholder(R.mipmap.not_found)
+                .setCache(new DoubleCache(this))
+                .setThreadCount(4)
+                .setLoadPolicy(new ReversePolicy());
+        SimpleImageLoader.getInstance().init(config);
+    }
+```
+
+销毁
+```
+    @Override
+    protected void onDestroy() {
+        SimpleImageLoader.getInstance().stop();
+        super.onDestroy();
+    }
+```
+
+加载图片
+```
+    SimpleImageLoader.getInstance().displayImage(imageview,getItem(position));
+```

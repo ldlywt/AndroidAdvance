@@ -29,7 +29,7 @@
         android:id="@+id/btn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="手写ImageLoader" />
+        android:text="手写图片加载框架" />
 
     <Button
         android:id="@+id/btn4"
