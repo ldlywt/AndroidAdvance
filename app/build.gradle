@@ -87,4 +87,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     compile 'org.aspectj:aspectjrt:1.8.9'
     implementation project(':ioc')
+    compile project(path: ':simpleimageloader')
 }

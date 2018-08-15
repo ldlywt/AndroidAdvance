@@ -22,6 +22,7 @@
         </activity>
         <activity android:name=".ui.AspectActivity" />
         <activity android:name=".ui.MyFragmentActivity"></activity>
+        <activity android:name=".ui.ImageActivity" />
     </application>
 
 </manifest>

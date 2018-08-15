@@ -1,1 +1,1 @@
-include ':app', ':ioc'
+include ':app', ':ioc', ':simpleimageloader'

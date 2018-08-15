@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, MyFragmentActivity.class));
                 break;
             case R.id.btn3:
-                Toast.makeText(this, "点击了按钮3333", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, ImageActivity.class));
                 break;
             case R.id.btn4:
                 Toast.makeText(this, "长按点击了按----------", Toast.LENGTH_SHORT).show();
