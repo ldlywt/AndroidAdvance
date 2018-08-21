@@ -86,7 +86,6 @@ public abstract class BitmapDecoder {
      * @param options
      * @param width
      * @param height
-     * @param lowQuality
      */
     protected void configBitmapOptions(Options options, int width, int height) {
         // 设置缩放比例
