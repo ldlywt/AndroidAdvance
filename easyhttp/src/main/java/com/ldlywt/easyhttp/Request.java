@@ -1,6 +1,7 @@
 package com.ldlywt.easyhttp;
 
 import java.net.MalformedURLException;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -42,7 +43,7 @@ public class Request {
     }
 
     public static final class Builder {
-        private Map<String, String> headers;
+        private Map<String, String> headers = new HashMap<>();
         private String method;
         private HttpUrl httpUrl;
         private RequestBody requestBody;

@@ -88,4 +88,5 @@ dependencies {
     compile 'org.aspectj:aspectjrt:1.8.9'
     implementation project(':ioc')
     compile project(path: ':easyimageloader')
+    implementation project(':easyhttp')
 }

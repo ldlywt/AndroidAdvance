@@ -1,5 +1,7 @@
 package com.ldlywt.easyhttp;
 
+import android.util.Log;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Iterator;
@@ -27,6 +29,9 @@ public class ConnectionPool {
     private static final Executor executor = new ThreadPoolExecutor(0 /* corePoolSize */,
             Integer.MAX_VALUE /* maximumPoolSize */, 60L /* keepAliveTime */, TimeUnit.SECONDS,
             new SynchronousQueue<Runnable>(), Util.threadFactory("OkHttp ConnectionPool", true));
+    /**
+     * 生成一个清理线程,这个线程会定期去检查，并且清理那些无用的连接，这里的无用是指没使用的间期超过了保留时间
+     */
     private final Runnable cleanupRunnable = new Runnable() {
         @Override
         public void run() {
@@ -54,8 +59,38 @@ public class ConnectionPool {
      * 根据当前时间，清理无用的连接
      */
     private long cleanup(long now) {
+        //最长闲置的时间
+        long longestIdleDuration = -1;
+        synchronized (this) {
+            Iterator<HttpConnection> iterator = httpConnections.iterator();
+            while (iterator.hasNext()) {
+                HttpConnection httpConnection = iterator.next();
+                //计算闲置时间
+                long idleDuration = now - httpConnection.lastUseTime;
 
-        return 0;
+                //根据闲置时间来判断是否需要被清理
+                if (idleDuration > keepAliveTime) {
+                    iterator.remove();
+                    httpConnection.close();
+                    Log.i("ConnectionPool", "超过闲置时间,移出连接池");
+                    continue;
+                }
+
+                //然后就整个连接池中最大的闲置时间
+                if (idleDuration > longestIdleDuration) {
+                    longestIdleDuration = idleDuration;
+                }
+            }
+
+            if (longestIdleDuration >= 0) {
+                //这里返回的值，可以让清理线程知道，下一次清理要多久以后
+                return keepAliveTime - longestIdleDuration;
+            }
+
+            //如果运行到这里的话，代表longestIdleDuration = -1，连接池中为空
+            cleanupRunning = false;
+            return longestIdleDuration;
+        }
     }
 
     private long keepAliveTime;

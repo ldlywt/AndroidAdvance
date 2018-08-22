@@ -9,13 +9,6 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * *****************************************************************
- * * 文件作者：ouyangshengduo
- * * 创建时间：2018/5/5
- * * 文件描述：
- * * 修改历史：2018/5/5 18:14*************************************
- **/
 
 public class HttpCodec {
 

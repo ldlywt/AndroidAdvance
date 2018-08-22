@@ -17,20 +17,21 @@ import java.util.List;
  */
 public class HttpClient {
 
-    private Dispatcher mDispather;
+    private Dispatcher dispatcher;
 
-    private List<Interceptor> mInterceptorList;
+    private List<Interceptor> interceptorList;
 
-    private int mRetryTimes;
+    private int retryTimes;
 
-    private ConnectionPool mConnectionPool;
+    private ConnectionPool connectionPool;
 
     private HttpClient(Builder builder) {
-        mDispather = builder.mDispather;
-        mInterceptorList = builder.mInterceptorList;
-        mRetryTimes = builder.mRetryTimes;
-        mConnectionPool = builder.mConnectionPool;
+        dispatcher = builder.dispatcher;
+        interceptorList = builder.interceptorList;
+        retryTimes = builder.retryTimes;
+        connectionPool = builder.connectionPool;
     }
+
 
     /**
      *  生成一个网络请求Call对象实例
@@ -42,65 +43,69 @@ public class HttpClient {
 
     //--------------------------get方法----------------------
 
-    public Dispatcher getDispather() {
-        return mDispather;
+    public Dispatcher getDispatcher() {
+        return dispatcher;
     }
 
     public List<Interceptor> getInterceptorList() {
-        if (mInterceptorList == null) {
+        if (interceptorList == null) {
             return new ArrayList<>();
         }
-        return mInterceptorList;
+        return interceptorList;
     }
 
     public int getRetryTimes() {
-        return mRetryTimes;
+        return retryTimes;
     }
 
     public ConnectionPool getConnectionPool() {
-        return mConnectionPool;
+        return connectionPool;
     }
 
-    //--------------------------builder--------------------
-
     public static final class Builder {
-        private Dispatcher mDispather;
-        private List<Interceptor> mInterceptorList;
-        private int mRetryTimes;
-        private ConnectionPool mConnectionPool;
+        private Dispatcher dispatcher;
+        private List<Interceptor> interceptorList;
+        private int retryTimes;
+        private ConnectionPool connectionPool;
 
         public Builder() {
         }
 
-        public Builder mDispather(Dispatcher val) {
-            mDispather = val;
+        public Builder setDispatcher(Dispatcher val) {
+            dispatcher = val;
             return this;
         }
 
-        public Builder mInterceptorList(List<Interceptor> val) {
-            mInterceptorList = val;
+        public Builder setInterceptorList(List<Interceptor> val) {
+            interceptorList = val;
             return this;
         }
 
-        public Builder mRetryTimes(int val) {
-            mRetryTimes = val;
+        public Builder setRetryTimes(int val) {
+            retryTimes = val;
             return this;
         }
 
-        public Builder mConnectionPool(ConnectionPool val) {
-            mConnectionPool = val;
+        public Builder setConnectionPool(ConnectionPool val) {
+            connectionPool = val;
             return this;
         }
 
         public HttpClient build() {
-            if (null == mDispather) {
-                mDispather = new Dispatcher();
+
+            if(null == dispatcher){
+                dispatcher = new Dispatcher();
             }
 
-            if (null == mConnectionPool) {
-                mConnectionPool = new ConnectionPool();
+            if(null == connectionPool){
+                connectionPool = new ConnectionPool();
             }
             return new HttpClient(this);
         }
     }
+
+    //--------------------------builder--------------------
+
+
+
 }

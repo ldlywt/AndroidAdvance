@@ -21,8 +21,8 @@ import java.util.ArrayList;
  */
 public class Call {
 
-    boolean executed;
-    boolean canceled;
+    private boolean executed;
+    private boolean canceled;
     private HttpClient mHttpClient;
     private Request mRequest;
 
@@ -47,6 +47,10 @@ public class Call {
         return mRequest.getHttpUrl().getHost();
     }
 
+    public HttpClient getHttpClient() {
+        return mHttpClient;
+    }
+
     public Response execute() throws IOException {
         synchronized (this) {
             if (executed) {
@@ -55,14 +59,14 @@ public class Call {
             executed = true;
         }
         try {
-            mHttpClient.getDispather().executed(this);
+            mHttpClient.getDispatcher().executed(this);
             Response result = getResponseWithInterceptorChain();
             if (result == null) {
                 throw new IOException("Canceled");
             }
             return result;
         } finally {
-            mHttpClient.getDispather().executed(this);
+            mHttpClient.getDispatcher().executed(this);
         }
     }
 
@@ -72,7 +76,7 @@ public class Call {
      * @return
      * @throws IOException
      */
-    Response getResponseWithInterceptorChain() throws IOException {
+    private Response getResponseWithInterceptorChain() throws IOException {
         ArrayList<Interceptor> interceptors = new ArrayList<>();
         interceptors.addAll(mHttpClient.getInterceptorList());
         interceptors.add(new RetryInterceptor());
@@ -95,7 +99,7 @@ public class Call {
             }
             executed = true;
         }
-        mHttpClient.getDispather().enqueue(new AsyncCall(callback));
+        mHttpClient.getDispatcher().enqueue(new AsyncCall(callback));
     }
 
     final class AsyncCall implements Runnable {
@@ -124,7 +128,7 @@ public class Call {
                 }
             } finally {
                 //将这个任务从调度器移除
-                mHttpClient.getDispather().finished(this);
+                mHttpClient.getDispatcher().finished(this);
             }
         }
 

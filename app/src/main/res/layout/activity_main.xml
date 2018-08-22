@@ -15,31 +15,32 @@
 
     <Button
         android:id="@+id/btn1"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="xxx" />
 
     <Button
         android:id="@+id/btn2"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="手写IOC" />
 
     <Button
         android:id="@+id/btn3"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="手写图片加载框架" />
+        android:text="手写图片加载" />
 
     <Button
         android:id="@+id/btn4"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="待完成" />
+        android:text="手写okhttp" />
 
     <Button
         android:id="@+id/btn5"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="待完成" />
 

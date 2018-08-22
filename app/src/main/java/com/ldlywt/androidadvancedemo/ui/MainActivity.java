@@ -20,17 +20,17 @@ import com.ldlywt.ioc.manager.InjectManager;
 @ContentViewById(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
 
-    public static final String TAG = MainActivity.class.getSimpleName();
-    @ViewById(R.id.btn1)
-    private Button btn1;
-    @ViewById(R.id.btn2)
-    private Button btn2;
-    @ViewById(R.id.btn3)
-    private Button btn3;
-    @ViewById(R.id.btn4)
-    private Button btn4;
-    @ViewById(R.id.btn5)
-    private Button btn5;
+//    public static final String TAG = MainActivity.class.getSimpleName();
+//    @ViewById(R.id.btn1)
+//    private Button btn1;
+//    @ViewById(R.id.btn2)
+//    private Button btn2;
+//    @ViewById(R.id.btn3)
+//    private Button btn3;
+//    @ViewById(R.id.btn4)
+//    private Button btn4;
+//    @ViewById(R.id.btn5)
+//    private Button btn5;
     @ViewById(R.id.tv_ioc)
     private TextView tvIoc;
 
@@ -38,9 +38,6 @@ public class MainActivity extends AppCompatActivity {
     private String text;
     @ColorById(R.color.colorAccent)
     private int color;
-
-    public MainActivity() {
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //支持数组形式的绑定，绑定多个控件
-    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn5})
+    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,R.id.btn5})
     @OnLongClick({R.id.btn4})
     @CheckNet()
     public void openIoc(View view) {
@@ -73,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, ImageActivity.class));
                 break;
             case R.id.btn4:
-                Toast.makeText(this, "长按点击了按----------", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, HttpActivity.class));
                 break;
             case R.id.btn5:
 

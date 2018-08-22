@@ -1,5 +1,9 @@
 package com.ldlywt.easyhttp.chain;
 
+import com.ldlywt.easyhttp.Response;
+
+import java.io.IOException;
+
 /**
  * <pre>
  *     author : lex
@@ -9,5 +13,10 @@ package com.ldlywt.easyhttp.chain;
  *     version: 1.0
  * </pre>
  */
-public class Interceptor {
+public interface Interceptor {
+    Response intercept(InterceptorChain interceptorChain) throws IOException;
+
+    interface Chain{
+        Response proceed() throws IOException;
+    }
 }
