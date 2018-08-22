@@ -74,3 +74,28 @@ https://blog.csdn.net/column/details/android-imageloader.html
 ```
     SimpleImageLoader.getInstance().displayImage(imageview,getItem(position));
 ```
+
+### 手写OkHttp框架
+> 主要来自 https://github.com/ouyangshengduo/SenduoHttp
+
+- 实现跟OkHttp一样的Client初始化
+```
+    HttpClient httpClient = new HttpClient();
+```
+- 跟OkHttp一样的同步调用
+```
+    Request request = new Request
+            .Builder()
+            .url("http://www.wanandroid.com/banner/json")
+            .build();
+    Call call = mHttpClient.newCall(request);
+    final Response response = call.execute();
+    Log.i(TAG, "get onResponse: " + response.getBody());
+```
+- 跟OkHttp一样的异步调用
+
+具体见 HttpActivity。
+Okh的源码解析文章见：
+> <https://www.jianshu.com/p/897964b79732>
+
+### 待完成

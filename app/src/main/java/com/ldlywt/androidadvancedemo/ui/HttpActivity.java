@@ -34,10 +34,11 @@ public class HttpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         InjectManager.inject(this);
-        mHttpClient = new HttpClient
-                .Builder()
-                .setRetryTimes(3)
-                .build();
+//        mHttpClient = new HttpClient
+//                .Builder()
+//                .setRetryTimes(3)
+//                .build();
+        mHttpClient = new HttpClient();
     }
 
     @OnClick({R.id.bt_get, R.id.bt_post})
@@ -76,7 +77,6 @@ public class HttpActivity extends AppCompatActivity {
                 }
             }
         }).start();
-
     }
 
     private void post() {

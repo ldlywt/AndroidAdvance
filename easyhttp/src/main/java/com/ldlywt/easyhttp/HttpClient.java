@@ -25,6 +25,10 @@ public class HttpClient {
 
     private ConnectionPool connectionPool;
 
+    public HttpClient(){
+        this(new Builder());
+    }
+
     private HttpClient(Builder builder) {
         dispatcher = builder.dispatcher;
         interceptorList = builder.interceptorList;
@@ -34,7 +38,7 @@ public class HttpClient {
 
 
     /**
-     *  生成一个网络请求Call对象实例
+     * 生成一个网络请求Call对象实例
      * Call call = client.newCall(request);
      */
     public Call newCall(Request request) {
@@ -93,19 +97,22 @@ public class HttpClient {
 
         public HttpClient build() {
 
-            if(null == dispatcher){
+            if (null == dispatcher) {
                 dispatcher = new Dispatcher();
             }
 
-            if(null == connectionPool){
+            if (null == connectionPool) {
                 connectionPool = new ConnectionPool();
+            }
+
+            if (0 == retryTimes) {
+                retryTimes = 3;
             }
             return new HttpClient(this);
         }
     }
 
     //--------------------------builder--------------------
-
 
 
 }
