@@ -20,24 +20,10 @@ import com.ldlywt.ioc.manager.InjectManager;
 @ContentViewById(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
 
-//    public static final String TAG = MainActivity.class.getSimpleName();
-//    @ViewById(R.id.btn1)
-//    private Button btn1;
-//    @ViewById(R.id.btn2)
-//    private Button btn2;
-//    @ViewById(R.id.btn3)
-//    private Button btn3;
-//    @ViewById(R.id.btn4)
-//    private Button btn4;
-//    @ViewById(R.id.btn5)
-//    private Button btn5;
+    @ViewById(R.id.btn1)
+    private Button btn1;
     @ViewById(R.id.tv_ioc)
     private TextView tvIoc;
-
-    @StringById(R.string.ioc)
-    private String text;
-    @ColorById(R.color.colorAccent)
-    private int color;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +36,12 @@ public class MainActivity extends AppCompatActivity {
 //        findViewById(R.id.btn3).setOnClickListener(this);
 //        findViewById(R.id.btn4).setOnClickListener(this);
 //        findViewById(R.id.btn5).setOnClickListener(this);
-        tvIoc.setText(text);
-        tvIoc.setBackgroundColor(color);
+        btn1.setText("AOP切面编程");
     }
 
     //支持数组形式的绑定，绑定多个控件
     @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,R.id.btn5})
-    @OnLongClick({R.id.btn4})
+    @OnLongClick({R.id.btn5})
     @CheckNet()
     public void openIoc(View view) {
         switch (view.getId()) {
@@ -64,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, AspectActivity.class));
                 break;
             case R.id.btn2:
-                startActivity(new Intent(this, MyFragmentActivity.class));
+                startActivity(new Intent(this, IocActivity.class));
                 break;
             case R.id.btn3:
                 startActivity(new Intent(this, ImageActivity.class));
@@ -73,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, HttpActivity.class));
                 break;
             case R.id.btn5:
-
+                Toast.makeText(this, "IOC长按", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

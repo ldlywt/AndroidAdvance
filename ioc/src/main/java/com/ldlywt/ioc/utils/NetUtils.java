@@ -1,4 +1,4 @@
-package com.ldlywt.ioc;
+package com.ldlywt.ioc.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

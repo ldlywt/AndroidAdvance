@@ -1,6 +1,8 @@
 package com.ldlywt.ioc.manager;
 
+
 import android.view.View;
+import android.widget.Toast;
 
 import com.ldlywt.ioc.annomation.event.OnClick;
 import com.ldlywt.ioc.annomation.event.OnLongClick;
@@ -9,9 +11,9 @@ import com.ldlywt.ioc.annomation.resouces.ColorById;
 import com.ldlywt.ioc.annomation.resouces.ContentViewById;
 import com.ldlywt.ioc.annomation.resouces.StringById;
 import com.ldlywt.ioc.annomation.resouces.ViewById;
-import com.ldlywt.ioc.listener.DeclaredOnClickListener;
-import com.ldlywt.ioc.listener.DeclaredOnLongClickListener;
-import com.ldlywt.ioc.view.ViewManager;
+import com.ldlywt.ioc.utils.LighterReflectionException;
+import com.ldlywt.ioc.utils.NetUtils;
+import com.ldlywt.ioc.utils.ReflectionUtil;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -42,59 +44,56 @@ public class InjectManagerService {
 
     /**
      * 注入变量
-     *
-     * @param viewManager
-     * @param object
      */
-    public static void injectField(ViewManager viewManager, Object object) {
-        injectFieldById(viewManager, object);
-    }
-
-    private static void injectFieldById(ViewManager viewManager, Object object) {
+    public static void injectFieldById(ViewManager viewManager, Object object) {
         Class<?> clazz = object.getClass();
         Field[] fields = clazz.getDeclaredFields();
         if (fields != null) {
             for (Field field : fields) {
-
-                ViewById viewById = field.getAnnotation(ViewById.class);
-                if (viewById != null) {
-                    int viewId = viewById.value();
-                    View view = viewManager.findViewById(viewId);
-                    //作用就是让我们在用反射时访问私有变量
-                    field.setAccessible(true);
-                    try {
-                        //动态注入到变量中,将指定对象变量上此 Field 对象表示的字段设置为指定的新值。
-                        field.set(object, view);
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                StringById stringById = field.getAnnotation(StringById.class);
-                if (stringById != null) {
-                    int stringId = stringById.value();
-                    String string = viewManager.getString(stringId);
-                    field.setAccessible(true);
-                    try {
-                        field.set(object, string);
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                ColorById colorById = field.getAnnotation(ColorById.class);
-                if (colorById != null) {
-                    int colorId = colorById.value();
-                    int color = viewManager.getColor(colorId);
-                    try {
-                        field.setAccessible(true);
-                        field.set(object, color);
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    }
-                }
+                injectViewById(viewManager, object, field);
+                injectStringById(viewManager, object, field);
+                injectColorById(viewManager, object, field);
             }
 
+        }
+    }
+
+    private static void injectViewById(ViewManager viewManager, Object object, Field field) {
+        ViewById viewById = field.getAnnotation(ViewById.class);
+        if (viewById != null) {
+            int viewId = viewById.value();
+            View view = viewManager.findViewById(viewId);
+            try {
+                ReflectionUtil.setValue(field, object, view);
+            } catch (LighterReflectionException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static void injectStringById(ViewManager viewManager, Object object, Field field) {
+        StringById stringById = field.getAnnotation(StringById.class);
+        if (stringById != null) {
+            int stringId = stringById.value();
+            String string = viewManager.getString(stringId);
+            try {
+                ReflectionUtil.setValue(field, object, string);
+            } catch (LighterReflectionException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static void injectColorById(ViewManager viewManager, Object object, Field field) {
+        ColorById colorById = field.getAnnotation(ColorById.class);
+        if (colorById != null) {
+            int colorId = colorById.value();
+            int color = viewManager.getColor(colorId);
+            try {
+                ReflectionUtil.setValue(field, object, color);
+            } catch (LighterReflectionException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -115,26 +114,36 @@ public class InjectManagerService {
      * @param viewManager
      * @param object
      */
-    private static void injectOnClick(ViewManager viewManager, Object object) {
+    private static void injectOnClick(ViewManager viewManager, final Object object) {
         Class<?> clazz = object.getClass();
         Method[] methods = clazz.getDeclaredMethods();
         if (methods != null) {
-            for (Method method : methods) {
+            for (final Method method : methods) {
                 OnClick onClick = method.getAnnotation(OnClick.class);
                 if (onClick != null) {
                     int[] viewIds = onClick.value();
                     for (int viewId : viewIds) {
                         View view = viewManager.findViewById(viewId);
-                        boolean isCheckNet = method.getAnnotation(CheckNet.class) != null;
+                        final boolean isCheckNet = method.getAnnotation(CheckNet.class) != null;
                         if (view != null) {
-                            view.setOnClickListener(new DeclaredOnClickListener(method, object, isCheckNet));
+                            view.setOnClickListener(v -> {
+                                if (isCheckNet) {
+                                    if (!NetUtils.isNetworkAvailable(v.getContext())) {
+                                        Toast.makeText(v.getContext(), "网络不可用", Toast.LENGTH_SHORT).show();
+                                        return;
+                                    }
+                                }
+                                try {
+                                    ReflectionUtil.invoke(method, object, v);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            });
                         }
                     }
                 }
             }
         }
-
-
     }
 
     /**
@@ -156,7 +165,20 @@ public class InjectManagerService {
                         //检查网络
                         boolean isCheckNet = method.getAnnotation(CheckNet.class) != null;
                         if (view != null) {
-                            view.setOnLongClickListener(new DeclaredOnLongClickListener(method, object, isCheckNet));
+                            view.setOnLongClickListener(v -> {
+                                if (isCheckNet) {
+                                    if (!NetUtils.isNetworkAvailable(v.getContext())) {
+                                        Toast.makeText(v.getContext(), "网络不可用", Toast.LENGTH_SHORT).show();
+                                        return true;
+                                    }
+                                }
+                                try {
+                                    ReflectionUtil.invoke(method, object, v);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                return true;
+                            });
                         }
                     }
                 }

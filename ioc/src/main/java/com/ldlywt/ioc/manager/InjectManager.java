@@ -3,9 +3,6 @@ package com.ldlywt.ioc.manager;
 import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.view.View;
-
-import com.ldlywt.ioc.view.ViewManager;
-
 /**
  * <pre>
  *     author : lex
@@ -31,7 +28,7 @@ public class InjectManager {
 
     private static void inject(ViewManager viewManager, Object object) {
         InjectManagerService.injectContentView(viewManager, object);
-        InjectManagerService.injectField(viewManager, object);
+        InjectManagerService.injectFieldById(viewManager, object);
         InjectManagerService.injectEvent(viewManager, object);
     }
 

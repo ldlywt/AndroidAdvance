@@ -10,31 +10,34 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.ldlywt.androidadvancedemo.R;
+import com.ldlywt.ioc.annomation.resouces.ColorById;
 import com.ldlywt.ioc.annomation.resouces.StringById;
 import com.ldlywt.ioc.annomation.resouces.ViewById;
 import com.ldlywt.ioc.manager.InjectManager;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * 测试下IOC框架在fragment中能不能使用
  */
-public class BlankFragment extends Fragment {
+public class IocFragment extends Fragment {
 
     @ViewById(R.id.tv)
     private TextView tv;
     @StringById(R.string.ioc)
     private String text;
 
-    public static BlankFragment newInstance(){
-        BlankFragment fragment = new BlankFragment();
-        return fragment;
+    @ColorById(R.color.colorAccent)
+    private int color;
+
+    public static IocFragment newInstance(){
+        return new IocFragment();
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_blank, container, false);
+        return inflater.inflate(R.layout.fragment_ioc, container, false);
     }
 
     @Override
@@ -42,5 +45,6 @@ public class BlankFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         InjectManager.inject(this);
         tv.setText(text);
+        tv.setBackgroundColor(color);
     }
 }

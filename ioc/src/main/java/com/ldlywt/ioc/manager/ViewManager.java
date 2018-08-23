@@ -1,4 +1,4 @@
-package com.ldlywt.ioc.view;
+package com.ldlywt.ioc.manager;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;

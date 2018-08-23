@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.AspectActivity" />
-        <activity android:name=".ui.MyFragmentActivity" />
+        <activity android:name=".ui.IocActivity" />
         <activity android:name=".ui.ImageActivity" />
         <activity android:name=".ui.HttpActivity"></activity>
     </application>
