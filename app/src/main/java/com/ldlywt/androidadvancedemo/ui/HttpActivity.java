@@ -39,6 +39,19 @@ public class HttpActivity extends AppCompatActivity {
 //                .setRetryTimes(3)
 //                .build();
         mHttpClient = new HttpClient();
+//        findViewById(R.id.bt_get).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                get();
+//            }
+//        });
+//
+//        findViewById(R.id.bt_post).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                post();
+//            }
+//        });
     }
 
     @OnClick({R.id.bt_get, R.id.bt_post})
@@ -66,7 +79,7 @@ public class HttpActivity extends AppCompatActivity {
                 try {
                     final Response response = call.execute();
                     Log.i(TAG, "get onResponse: " + response.getBody());
-                    mTvShow.post(new Runnable() {
+                    runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             mTvShow.setText(response.getBody());

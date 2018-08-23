@@ -73,6 +73,9 @@ public class HttpClient {
         private ConnectionPool connectionPool;
 
         public Builder() {
+            dispatcher = new Dispatcher();
+            connectionPool = new ConnectionPool();
+            retryTimes = 3;
         }
 
         public Builder setDispatcher(Dispatcher val) {

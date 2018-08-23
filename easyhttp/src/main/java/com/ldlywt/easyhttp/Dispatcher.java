@@ -21,17 +21,17 @@ public class Dispatcher {
 
     /**
      * Ready async calls in the order they'll be run.
-     * 等待中的异步请求call
+     * 待执行异步任务队列
      */
     private final Deque<Call.AsyncCall> readyAsyncCalls = new ArrayDeque<>();
     /**
      * Running asynchronous calls. Includes canceled calls that haven't finished yet.
-     * 运行中的异步请求call队列
+     * 运行中异步任务队列
      */
     private final Deque<Call.AsyncCall> runningAsyncCalls = new ArrayDeque<>();
     /**
      * Running synchronous calls. Includes canceled calls that haven't finished yet.
-     * 运行中的同步请求call队列
+     * 运行中同步任务队列
      */
     private final Deque<Call> runningSyncCalls = new ArrayDeque<>();
     /**
@@ -55,6 +55,12 @@ public class Dispatcher {
     public Dispatcher() {
     }
 
+    /**
+     * 如果满足条件：
+     * 当前请求数小于最大请求数（64）
+     * 对单一host的请求小于阈值（5）
+     * 将该任务插入正在执行任务队列，并执行对应任务。如果不满足则将其放入待执行队列。
+     */
     public void enqueue(Call.AsyncCall asynCall) {
         if (runningAsyncCalls.size() < maxRequests && runningCallsForHost(asynCall) < maxRequestsPerHost) {
             runningAsyncCalls.add(asynCall);
@@ -76,6 +82,9 @@ public class Dispatcher {
         return result;
     }
 
+    /**
+     * 任务队列线程池
+     */
     public synchronized ExecutorService executorService() {
         if (executorService == null) {
             executorService = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60, TimeUnit.SECONDS,
@@ -106,6 +115,7 @@ public class Dispatcher {
 
     /**
      * 检查是否可以运行等待中的请求
+     * 扫描待执行任务队列，将任务放入正在执行任务队列，并执行该任务。
      */
     private void promoteCalls() {
         if (runningAsyncCalls.size() >= maxRequests) return; // Already running max capacity.

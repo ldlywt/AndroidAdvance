@@ -117,6 +117,7 @@ public class Call {
                 Response response = getResponseWithInterceptorChain();
                 if (canceled) {
                     signalledCallback = true;
+                    //回调，注意这里回调是在线程池中，而不是想当然的主线程回调
                     callback.onFailure(Call.this, new IOException("this task had canceled"));
                 } else {
                     signalledCallback = true;
@@ -128,6 +129,7 @@ public class Call {
                 }
             } finally {
                 //将这个任务从调度器移除
+                //当任务执行完成后，无论成功与否都会调用dispatcher.finished方法，通知分发器相关任务已结束
                 mHttpClient.getDispatcher().finished(this);
             }
         }
