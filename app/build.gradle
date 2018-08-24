@@ -60,19 +60,19 @@ variants.all { variant ->
 
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion var.android.compileSdkVersion
     defaultConfig {
         applicationId "com.ldlywt.androidadvancedemo"
-        minSdkVersion 15
-        targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion var.android.defaultConfig.minSdkVersion
+        targetSdkVersion var.android.defaultConfig.targetSdkVersion
+        versionCode var.android.defaultConfig.versionCode
+        versionName var.android.defaultConfig.versionName
+        testInstrumentationRunner var.android.defaultConfig.testInstrumentationRunner
     }
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled var.android.buildTypes.release.minifyEnabled
+            proguardFiles getDefaultProguardFile(var.android.buildTypes.release.defaultProguardFile), var.android.buildTypes.release.proguardFile
         }
     }
 
@@ -90,8 +90,11 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    compile 'org.aspectj:aspectjrt:1.8.9'
     implementation project(':ioc')
-    compile project(path: ':easyimageloader')
     implementation project(':easyhttp')
+    implementation project(':base')
+    implementation project(':easyimageloader')
+
+    compile var.dependencies.logger
+    compile var.dependencies.aspectjrt
 }

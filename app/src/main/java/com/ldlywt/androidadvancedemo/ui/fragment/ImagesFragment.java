@@ -11,7 +11,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.ldlywt.androidadvancedemo.R;
-import com.ldlywt.androidadvancedemo.ui.base.BaseFragment;
+import com.ldlywt.base.fragment.BaseFragment;
 import com.ldlywt.simpleimageloader.org.simple.imageloader.cache.DoubleCache;
 import com.ldlywt.simpleimageloader.org.simple.imageloader.config.ImageLoaderConfig;
 import com.ldlywt.simpleimageloader.org.simple.imageloader.core.SimpleImageLoader;

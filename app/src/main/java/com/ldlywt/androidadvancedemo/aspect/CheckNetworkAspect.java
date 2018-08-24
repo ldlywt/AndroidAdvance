@@ -1,21 +1,15 @@
 package com.ldlywt.androidadvancedemo.aspect;
 
-import android.app.Activity;
 import android.content.Context;
-import android.support.v4.app.Fragment;
-import android.view.View;
 import android.widget.Toast;
 
-import com.ldlywt.androidadvancedemo.utils.NetworkUtils;
+import com.ldlywt.base.utils.NetworkUtils;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
-
-import java.lang.reflect.Method;
 
 /**
  * <pre>

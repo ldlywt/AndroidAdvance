@@ -1,4 +1,4 @@
-package com.ldlywt.androidadvancedemo;
+package com.ldlywt.base;
 
 import android.app.Application;
 

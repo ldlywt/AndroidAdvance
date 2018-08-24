@@ -1,4 +1,4 @@
-package com.ldlywt.androidadvancedemo.utils;
+package com.ldlywt.base.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

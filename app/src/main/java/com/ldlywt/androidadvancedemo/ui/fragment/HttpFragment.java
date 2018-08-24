@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ldlywt.androidadvancedemo.R;
-import com.ldlywt.androidadvancedemo.ui.base.BaseFragment;
+import com.ldlywt.base.fragment.BaseFragment;
 import com.ldlywt.easyhttp.Call;
 import com.ldlywt.easyhttp.Callback;
 import com.ldlywt.easyhttp.HttpClient;

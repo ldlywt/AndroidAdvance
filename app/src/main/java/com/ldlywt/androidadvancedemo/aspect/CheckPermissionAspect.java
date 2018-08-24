@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.ldlywt.androidadvancedemo.utils.PermissionManager;
+import com.ldlywt.base.utils.PermissionManager;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

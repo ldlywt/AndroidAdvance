@@ -1,4 +1,4 @@
-package com.ldlywt.androidadvancedemo.ui.base;
+package com.ldlywt.base.fragment;
 
 import android.support.v4.app.Fragment;
 

@@ -1,4 +1,4 @@
-package com.ldlywt.androidadvancedemo.ui.base;
+package com.ldlywt.base.activity;
 
 import android.content.Intent;
 import android.os.Bundle;

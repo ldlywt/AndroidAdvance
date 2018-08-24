@@ -1,4 +1,4 @@
-package com.ldlywt.androidadvancedemo.ui.base;
+package com.ldlywt.base.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
-import com.ldlywt.androidadvancedemo.ui.base.BaseFragment;
+
+import com.ldlywt.base.fragment.BaseFragment;
+
 import java.lang.ref.WeakReference;
 import static android.view.View.generateViewId;
 

@@ -1,19 +1,12 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
-    buildscript {
-
-        repositories {
-            google()
-            jcenter()
-        }
-        dependencies {
-            classpath 'com.android.tools.build:gradle:3.0.1'
-
-
-            // NOTE: Do not place your application dependencies here; they belong
-            // in the individual module build.gradle files
-        }
+buildscript {
+    repositories {
+        google()
+        jcenter()
     }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+    }
+}
 
 allprojects {
     repositories {
@@ -24,4 +17,41 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+
+ext {
+    var = [
+            android : [
+                    // android
+                    compileSdkVersion: 26,
+                    buildToolsVersion: "26.1.0",
+                    defaultConfig: [
+                            minSdkVersion: 15,
+                            targetSdkVersion: 26,
+                            versionCode: 1,
+                            versionName: "1.0",
+                            testInstrumentationRunner: "android.support.test.runner.AndroidJUnitRunner"
+                    ],
+
+                    buildTypes: [
+                            release: [
+                                    minifyEnabled: false,
+                                    defaultProguardFile: 'proguard-android.txt',
+                                    proguardFile: 'proguard-rules.pro'
+                            ],
+                    ],
+            ],
+
+
+            dependencies: [
+                    espresso_core: 'com.android.support.test.espresso:espresso-core:2.2.2',
+                    junit: 'junit:junit:4.12',
+                    appcompat_v7: 'com.android.support:appcompat-v7:25.3.1',
+                    constraint_layout: 'com.android.support.constraint:constraint-layout:1.0.2',
+                    logger: 'com.orhanobut:logger:2.1.1',
+                    aspectjrt: 'org.aspectj:aspectjrt:1.8.9',
+                    okhttp: 'com.squareup.okhttp3:okhttp:3.7.0'
+            ]
+    ]
 }
