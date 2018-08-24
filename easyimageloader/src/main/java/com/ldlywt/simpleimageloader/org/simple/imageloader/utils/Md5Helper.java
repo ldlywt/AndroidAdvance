@@ -32,6 +32,8 @@
 
 package com.ldlywt.simpleimageloader.org.simple.imageloader.utils;
 
+import android.util.Log;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -66,9 +68,14 @@ public class Md5Helper {
         if ( mDigest == null ) {
             return String.valueOf(key.hashCode());
         }
-        mDigest.update(key.getBytes());
-        cacheKey = bytesToHexString(mDigest.digest());
-        return cacheKey;
+        try {
+            mDigest.update(key.getBytes());
+            cacheKey = bytesToHexString(mDigest.digest());
+            return cacheKey;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**

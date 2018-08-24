@@ -45,19 +45,17 @@ public class AspectFragment extends BaseFragment {
     @ViewById(R.id.btn1)
     private Button btn1;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_aspect, container, false);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    protected void initData() {
         //必须要写在这里，要等view初始化完才能注入
         InjectManager.inject(this);
         btn1.setText(text);
         btn1.setTextColor(color);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_aspect;
     }
 
     @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,R.id.btn5})

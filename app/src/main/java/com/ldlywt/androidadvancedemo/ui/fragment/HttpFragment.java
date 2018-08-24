@@ -40,17 +40,15 @@ public class HttpFragment extends BaseFragment {
     @ViewById(R.id.tv_show)
     private TextView mTvShow;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_http, container, false);
+    protected void initData() {
+        InjectManager.inject(this);
+        mHttpClient = new HttpClient();
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        InjectManager.inject(this);
-        mHttpClient = new HttpClient();
+    protected int getLayoutId() {
+        return R.layout.fragment_http;
     }
 
     @OnClick({R.id.bt_get, R.id.bt_post})

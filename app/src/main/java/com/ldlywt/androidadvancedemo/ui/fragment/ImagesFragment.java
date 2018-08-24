@@ -47,26 +47,21 @@ public class ImagesFragment extends BaseFragment {
     private ImageItemAdapter mAdapter;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected int getLayoutId() {
+        return R.layout.gridview_fragment;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.gridview_fragment, container,
-                false);
+    protected void initView(View view) {
         RecyclerView recyclerView = view.findViewById(R.id.recycleview);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        recyclerView.addItemDecoration(new DividerItemDecoration(App.getApp(), DividerItemDecoration.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(mActivity, DividerItemDecoration.VERTICAL));
         mAdapter = new ImageItemAdapter();
         recyclerView.setAdapter(mAdapter);
-        return view;
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    protected void initData() {
         initImageLoader();
         HttpClient httpClient = new HttpClient();
         Request request = new Request
@@ -84,7 +79,7 @@ public class ImagesFragment extends BaseFragment {
                 Logger.i(response.getBody());
                 Gson gson = new Gson();
                 PictureBean pictureBean = gson.fromJson(response.getBody(), PictureBean.class);
-                getActivity().runOnUiThread(() -> {
+                mActivity.runOnUiThread(() -> {
                     mAdapter.setList(pictureBean.data);
                     mAdapter.getRandomHeight(pictureBean.data);
                     mAdapter.notifyDataSetChanged();
@@ -103,7 +98,7 @@ public class ImagesFragment extends BaseFragment {
         ImageLoaderConfig config = new ImageLoaderConfig()
                 .setLoadingPlaceholder(R.mipmap.loading)
                 .setNotFoundPlaceholder(R.mipmap.not_found)
-                .setCache(new DoubleCache(getActivity()))
+                .setCache(new DoubleCache(mActivity))
                 .setThreadCount(4)
                 .setLoadPolicy(new ReversePolicy());
         // 初始化
@@ -143,7 +138,7 @@ public class ImagesFragment extends BaseFragment {
         @NonNull
         @Override
         public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(getActivity()).inflate(R.layout.image_item_layout, parent, false);
+            View view = LayoutInflater.from(mActivity).inflate(R.layout.image_item_layout, parent, false);
             return new ImageViewHolder(view);
         }
 
