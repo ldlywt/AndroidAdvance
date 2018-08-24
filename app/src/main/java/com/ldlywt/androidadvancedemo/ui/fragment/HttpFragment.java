@@ -20,6 +20,7 @@ import com.ldlywt.easyhttp.Response;
 import com.ldlywt.ioc.annomation.event.OnClick;
 import com.ldlywt.ioc.annomation.resouces.ViewById;
 import com.ldlywt.ioc.manager.InjectManager;
+import com.orhanobut.logger.Logger;
 
 import java.io.IOException;
 
@@ -33,8 +34,6 @@ import java.io.IOException;
  * </pre>
  */
 public class HttpFragment extends BaseFragment {
-
-    public static final String TAG = "HttpFragment";
 
     private HttpClient mHttpClient;
 
@@ -58,7 +57,6 @@ public class HttpFragment extends BaseFragment {
     public void open(View v) {
         switch (v.getId()) {
             case R.id.bt_get:
-//                Toast.makeText(this, "xxxx", Toast.LENGTH_SHORT).show();
                 get();
                 break;
             case R.id.bt_post:
@@ -76,7 +74,8 @@ public class HttpFragment extends BaseFragment {
             Call call = mHttpClient.newCall(request);
             try {
                 final Response response = call.execute();
-                Log.i(TAG, "get onResponse: " + response.getBody());
+//                Log.i(TAG, "get onResponse: " + response.getBody());
+                Logger.json(response.getBody());
                 getActivity().runOnUiThread(() -> mTvShow.setText(response.getBody()));
             } catch (IOException e) {
                 e.printStackTrace();
@@ -98,12 +97,12 @@ public class HttpFragment extends BaseFragment {
                 .enqueue(new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
-                        Log.i(TAG, "onFailure: " + e.toString());
+                        Logger.json(e.toString());
                     }
 
                     @Override
                     public void onResponse(Call call, final Response response) throws IOException {
-                        Log.i(TAG, "post onResponse: " + response.getBody());
+                        Logger.json(response.getBody());
                         getActivity().runOnUiThread(() -> mTvShow.setText(response.getBody()));
 
                     }

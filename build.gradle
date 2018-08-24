@@ -25,7 +25,6 @@ ext {
             android : [
                     // android
                     compileSdkVersion: 26,
-                    buildToolsVersion: "26.1.0",
                     defaultConfig: [
                             minSdkVersion: 15,
                             targetSdkVersion: 26,
@@ -42,16 +41,28 @@ ext {
                             ],
                     ],
             ],
-
-
             dependencies: [
                     espresso_core: 'com.android.support.test.espresso:espresso-core:2.2.2',
                     junit: 'junit:junit:4.12',
-                    appcompat_v7: 'com.android.support:appcompat-v7:25.3.1',
+                    appcompat_v7: 'com.android.support:appcompat-v7:27.1.1',
+                    support_v4: 'com.android.support:support-v4:27.1.1',
                     constraint_layout: 'com.android.support.constraint:constraint-layout:1.0.2',
+                    recyclerview: 'com.android.support:recyclerview-v7:27.1.1',
+                    design: 'com.android.support:design:27.1.1',
+
+                    // ReactiveX
+                    rxjava2: 'io.reactivex.rxjava2:rxjava:2.1.7',
+                    rxandroid: 'io.reactivex.rxjava2:rxandroid:2.0.1',
+
+                    // Retrofit
+                    retrofit: 'com.squareup.retrofit2:retrofit:2.2.0',
+                    converter_gson: 'com.squareup.retrofit2:converter-gson:2.2.0',
+                    adapter_rxjava: 'com.squareup.retrofit2:adapter-rxjava:2.2.0',
+
                     logger: 'com.orhanobut:logger:2.1.1',
                     aspectjrt: 'org.aspectj:aspectjrt:1.8.9',
                     okhttp: 'com.squareup.okhttp3:okhttp:3.7.0'
+                    
             ]
     ]
 }

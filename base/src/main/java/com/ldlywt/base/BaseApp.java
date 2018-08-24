@@ -11,19 +11,19 @@ import android.app.Application;
  *     version: 1.0
  * </pre>
  */
-public class App extends Application {
+public class BaseApp extends Application {
 
     public static boolean isLogin = true;
 
-    private static App mApp = null;
+    private static BaseApp sMBaseApp = null;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        mApp = this;
+        sMBaseApp = this;
     }
 
-    public static App getApp() {
-        return mApp;
+    public static BaseApp getApp() {
+        return sMBaseApp;
     }
 }

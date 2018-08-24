@@ -84,9 +84,6 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    implementation 'com.android.support:support-v4:27.1.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -94,7 +91,20 @@ dependencies {
     implementation project(':easyhttp')
     implementation project(':base')
     implementation project(':easyimageloader')
+    //Android
+    implementation var.dependencies.appcompat_v7
+    implementation var.dependencies.support_v4
+    implementation var.dependencies.constraint_layout
+    implementation var.dependencies.recyclerview
+    implementation var.dependencies.design
+    //Square
+    implementation var.dependencies.okhttp
+    implementation var.dependencies.rxjava2
+    implementation var.dependencies.rxandroid
+    implementation var.dependencies.retrofit
+    implementation var.dependencies.converter_gson
+    implementation var.dependencies.adapter_rxjava
 
-    compile var.dependencies.logger
-    compile var.dependencies.aspectjrt
+    implementation var.dependencies.logger
+    implementation var.dependencies.aspectjrt
 }

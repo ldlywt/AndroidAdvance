@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.ldlywt.base.App;
+import com.ldlywt.base.BaseApp;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -45,7 +45,7 @@ public class CheckLoginAspect {
         CheckLogin annotation = signature.getMethod().getAnnotation(CheckLogin.class);
         if (annotation != null) {
             Context context = AspectUtils.getContext(joinPoint.getThis());
-            if (App.isLogin) {
+            if (BaseApp.isLogin) {
                 Log.i(TAG, "checkLogin: 登录成功 ");
                 Toast.makeText(context, "用户已经登录了", Toast.LENGTH_SHORT).show();
                 return joinPoint.proceed();
