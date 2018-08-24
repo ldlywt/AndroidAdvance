@@ -8,35 +8,30 @@
     android:orientation="vertical"
     tools:context="com.ldlywt.androidadvancedemo.ui.MainActivity">
 
-    <TextView
-        android:id="@+id/tv_ioc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
     <Button
         android:id="@+id/btn1"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="xxx" />
+        android:text="AOP切面编程" />
 
     <Button
         android:id="@+id/btn2"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="手写IOC" />
+        android:text="手写图片加载" />
 
     <Button
         android:id="@+id/btn3"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="手写图片加载" />
+        android:text="手写okhttp" />
 
     <Button
         android:id="@+id/btn4"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="手写okhttp" />
+        android:text="待完成" />
 
     <Button
         android:id="@+id/btn5"

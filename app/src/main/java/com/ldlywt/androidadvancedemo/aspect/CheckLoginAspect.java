@@ -44,7 +44,7 @@ public class CheckLoginAspect {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         CheckLogin annotation = signature.getMethod().getAnnotation(CheckLogin.class);
         if (annotation != null) {
-            Context context = (Context) joinPoint.getThis();
+            Context context = AspectUtils.getContext(joinPoint.getThis());
             if (App.isLogin) {
                 Log.i(TAG, "checkLogin: 登录成功 ");
                 Toast.makeText(context, "用户已经登录了", Toast.LENGTH_SHORT).show();

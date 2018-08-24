@@ -46,7 +46,7 @@ public class CheckPermissionAspect {
         CheckPermission annotation = signature.getMethod().getAnnotation(CheckPermission.class);
         if (annotation != null) {
             String permission = annotation.value();
-            Context context = (Context) joinPoint.getThis();
+            Context context = AspectUtils.getContext(joinPoint.getThis());
             Object o = null;
             if (PermissionManager.getInnerInstance().checkPermission(context,permission)) {
                 o = joinPoint.proceed();

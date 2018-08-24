@@ -49,7 +49,7 @@ public class CheckNetworkAspect {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         CheckNetwork annotation = signature.getMethod().getAnnotation(CheckNetwork.class);
         if (annotation != null) {
-            Context context = getContext(joinPoint.getThis());
+            Context context = AspectUtils.getContext(joinPoint.getThis());
             if (NetworkUtils.isNetworkAvailable(context)) {
                 Toast.makeText(context, "当前网络正常", Toast.LENGTH_SHORT).show();
             } else {
@@ -60,22 +60,5 @@ public class CheckNetworkAspect {
         return null;
     }
 
-    /**
-     * 通过对象获取上下文
-     */
-    private Context getContext(Object object) {
-        if (object instanceof Activity) {
-            return (Activity) object;
-        } else if (object instanceof Fragment) {
-            Fragment fragment = (Fragment) object;
-            return fragment.getActivity();
-        } else if (object instanceof android.app.Fragment) {
-            android.app.Fragment fragment = (android.app.Fragment) object;
-            return fragment.getActivity();
-        } else if (object instanceof View) {
-            View view = (View) object;
-            return view.getContext();
-        }
-        return null;
-    }
+
 }

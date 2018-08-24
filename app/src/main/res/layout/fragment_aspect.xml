@@ -14,7 +14,7 @@
         android:id="@+id/btn1"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="AOP检查权限"/>
+        android:text="xxx"/>
 
     <Button
         android:id="@+id/btn2"
