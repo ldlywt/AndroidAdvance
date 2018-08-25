@@ -17,6 +17,6 @@ android {
 }
 
 dependencies {
-    compile var.dependencies.appcompat_v7
-    compile var.dependencies.okhttp
+    implementation var.dependencies.appcompat_v7
+    implementation var.dependencies.okhttp
 }
