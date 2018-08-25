@@ -1,8 +1,6 @@
 package com.ldlywt.androidadvancedemo.ui.fragment;
 
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -10,10 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 
 import com.google.gson.Gson;
-import com.ldlywt.androidadvancedemo.App;
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.bean.PictureBean;
 import com.ldlywt.base.fragment.BaseFragment;
@@ -48,7 +44,7 @@ public class ImagesFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.gridview_fragment;
+        return R.layout.recycleview;
     }
 
     @Override

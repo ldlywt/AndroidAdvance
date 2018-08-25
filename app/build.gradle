@@ -91,6 +91,7 @@ dependencies {
     implementation project(':easyhttp')
     implementation project(':base')
     implementation project(':easyimageloader')
+    implementation project(':xdialog')
     //Android
     implementation var.dependencies.appcompat_v7
     implementation var.dependencies.support_v4
@@ -104,7 +105,8 @@ dependencies {
     implementation var.dependencies.retrofit
     implementation var.dependencies.converter_gson
     implementation var.dependencies.adapter_rxjava
-
     implementation var.dependencies.logger
     implementation var.dependencies.aspectjrt
+    implementation var.dependencies.BaseRecyclerViewAdapterHelper
+
 }

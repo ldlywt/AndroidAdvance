@@ -12,6 +12,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 
@@ -61,7 +62,8 @@ ext {
 
                     logger: 'com.orhanobut:logger:2.1.1',
                     aspectjrt: 'org.aspectj:aspectjrt:1.8.9',
-                    okhttp: 'com.squareup.okhttp3:okhttp:3.7.0'
+                    okhttp: 'com.squareup.okhttp3:okhttp:3.7.0',
+                    BaseRecyclerViewAdapterHelper: 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
                     
             ]
     ]

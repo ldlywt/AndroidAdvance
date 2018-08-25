@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Toast;
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.ui.fragment.AspectFragment;
+import com.ldlywt.androidadvancedemo.ui.fragment.DialogFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.HttpFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.ImagesFragment;
 import com.ldlywt.base.activity.BaseActivity;
@@ -41,7 +42,7 @@ public class MainActivity extends BaseActivity {
                 startContainerActivity(HttpFragment.class.getCanonicalName());
                 break;
             case R.id.btn4:
-
+                startContainerActivity(DialogFragment.class.getCanonicalName());
                 break;
             case R.id.btn5:
                 Toast.makeText(this, "IOC长按", Toast.LENGTH_SHORT).show();
