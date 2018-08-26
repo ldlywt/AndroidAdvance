@@ -50,6 +50,7 @@ public class XDialog extends AbsDialogFragment implements View.OnClickListener {
     public void bindView(View view) {
         if (null != mController.getIds() && mController.getIds().length > 0) {
             for (int viewId : mController.getIds()) {
+                view.setClickable(true);
                 view.findViewById(viewId).setOnClickListener(this);
             }
         }

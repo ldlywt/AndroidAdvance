@@ -2,7 +2,9 @@ package com.ldlywt.androidadvancedemo.ui;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
+
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.ui.fragment.AspectFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.DialogTestFragment;
@@ -14,19 +16,25 @@ import com.ldlywt.ioc.annomation.event.OnLongClick;
 import com.ldlywt.ioc.annomation.network.CheckNet;
 import com.ldlywt.ioc.annomation.resouces.ContentViewById;
 import com.ldlywt.ioc.manager.InjectManager;
+import com.ldlywt.xtoolbar.XToolBar;
 
 @ContentViewById(R.layout.activity_main)
 public class MainActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //IOC注入
+    protected void initFirst() {
         InjectManager.inject(this);
     }
 
+    @Override
+    protected void initTitle() {
+        new XToolBar
+                .Builder(this, findViewById(R.id.ll_root))
+                .builder();
+    }
+
     //支持数组形式的绑定，绑定多个控件
-    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,R.id.btn5})
+    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5})
     @OnLongClick({R.id.btn5})
     @CheckNet()
     public void openIoc(View view) {

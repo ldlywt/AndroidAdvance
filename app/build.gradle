@@ -108,5 +108,5 @@ dependencies {
     implementation var.dependencies.logger
     implementation var.dependencies.aspectjrt
     implementation var.dependencies.BaseRecyclerViewAdapterHelper
-
+    implementation project(':xtoolbar')
 }

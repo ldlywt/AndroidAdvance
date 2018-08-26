@@ -14,12 +14,20 @@ import android.support.v7.app.AppCompatActivity;
  *     version: 1.0
  * </pre>
  */
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initFirst();
+        initTitle();
     }
+
+    protected void initFirst() {
+
+    }
+
+    protected void initTitle(){}
 
     /**
      * 跳转容器页面

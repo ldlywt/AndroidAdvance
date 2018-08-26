@@ -4,10 +4,8 @@ import android.content.DialogInterface;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.BaseAdapter;
 
 import java.io.Serializable;
 
@@ -31,7 +29,6 @@ class Controller implements Serializable, Parcelable {
     private int[] ids;
     private boolean isCancelableOutside;
     private OnViewClickListener onViewClickListener;
-    private int orientation;
     private int dialogAnimationRes;
     private View dialogView;
     private DialogInterface.OnDismissListener onDismissListener;
@@ -77,10 +74,6 @@ class Controller implements Serializable, Parcelable {
         return onViewClickListener;
     }
 
-    public int getOrientation() {
-        return orientation;
-    }
-
     public int getDialogAnimationRes() {
         return dialogAnimationRes;
     }
@@ -109,7 +102,6 @@ class Controller implements Serializable, Parcelable {
         dest.writeString(this.tag);
         dest.writeIntArray(this.ids);
         dest.writeByte(this.isCancelableOutside ? (byte) 1 : (byte) 0);
-        dest.writeInt(this.orientation);
         dest.writeInt(this.dialogAnimationRes);
     }
 
@@ -126,7 +118,6 @@ class Controller implements Serializable, Parcelable {
         this.tag = in.readString();
         this.ids = in.createIntArray();
         this.isCancelableOutside = in.readByte() != 0;
-        this.orientation = in.readInt();
         this.dialogAnimationRes = in.readInt();
         this.dialogView = in.readParcelable(View.class.getClassLoader());
         this.onDismissListener = in.readParcelable(DialogInterface.OnDismissListener.class.getClassLoader());
@@ -159,7 +150,6 @@ class Controller implements Serializable, Parcelable {
         public boolean mIsCancelableOutside = true;
         public OnViewClickListener mOnViewClickListener;
         public int mDialogAnimationRes = 0;//弹窗动画
-        public int orientation = LinearLayoutManager.VERTICAL;//默认RecyclerView的列表方向为垂直方向
         public View mDialogView;//直接使用传入进来的View,而不需要通过解析Xml
         public DialogInterface.OnDismissListener mOnDismissListener;
 
