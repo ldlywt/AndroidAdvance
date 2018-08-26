@@ -18,7 +18,7 @@ import android.view.View;
  *     version: 1.0
  * </pre>
  */
-public class XDialog extends BaseDialogFragment implements View.OnClickListener {
+public class XDialog extends AbsDialogFragment implements View.OnClickListener {
 
     private static final String KEY_CONTROLLER = "Controller";
     protected Controller mController;

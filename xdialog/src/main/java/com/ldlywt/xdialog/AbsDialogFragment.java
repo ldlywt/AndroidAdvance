@@ -24,7 +24,7 @@ import android.view.WindowManager;
  *     version: 1.0
  * </pre>
  */
-public abstract class BaseDialogFragment extends AppCompatDialogFragment {
+public abstract class AbsDialogFragment extends AppCompatDialogFragment {
 
     private static final float DEFAULT_DIMAMOUNT = 0.2F;
 
@@ -108,7 +108,7 @@ public abstract class BaseDialogFragment extends AppCompatDialogFragment {
         return context.getResources().getDisplayMetrics().heightPixels;
     }
     public String getFragmentTag(){
-        return BaseDialogFragment.class.getSimpleName();
+        return AbsDialogFragment.class.getSimpleName();
     }
 
 }

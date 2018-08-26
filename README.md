@@ -103,6 +103,10 @@ Q：为什么要使用 DialogFragment？
 - 继承自Fragment，拥有Fragment的生命周期。
 - 当旋转屏幕和按下后退键时可以更好的管理其声明周期
 
+PS:我见过很多的 Dialog 的库都把 Listview 或者 RecycleView 封装进去了，个人并不是很赞同这种做法。为了把列表封装进去，
+将整个 lib 瞬间多了很多的代码，不同情况下的列表并不一样，也不能通用所用情况，还不如直接通过 `setView(recycleVIew)`
+这中方式将列表 set 进去。
+
 > 具体使用见 `DialogTestFragment`
 
 ### 待实现

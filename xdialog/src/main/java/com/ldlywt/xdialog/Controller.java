@@ -154,7 +154,7 @@ class Controller implements Serializable, Parcelable {
         public int mHeight;
         public float mDimAmount = 0.2f;
         public int mGravity = Gravity.CENTER;
-        public String mTag = "TDialog";
+        public String mTag = "XDialog";
         public int[] ids;
         public boolean mIsCancelableOutside = true;
         public OnViewClickListener mOnViewClickListener;
@@ -190,7 +190,6 @@ class Controller implements Serializable, Parcelable {
             if (tController.getLayoutRes() <= 0 && tController.getDialogView() == null) {
                 throw new IllegalArgumentException("请先调用setLayoutRes()方法设置弹窗所需的xml布局!");
             }
-            //如果宽高都没有设置,则默认给弹窗提供宽度为600
             if (tController.width <= 0 && tController.height <= 0) {
                 tController.width = 600;
             }
