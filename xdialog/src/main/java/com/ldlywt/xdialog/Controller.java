@@ -20,7 +20,7 @@ import java.io.Serializable;
  *     version: 1.0
  * </pre>
  */
-class Controller<A extends BaseAdapter> implements Serializable, Parcelable {
+class Controller implements Serializable, Parcelable {
     private FragmentManager fragmentManager;
     private int layoutRes;
     private int height;
@@ -31,7 +31,6 @@ class Controller<A extends BaseAdapter> implements Serializable, Parcelable {
     private int[] ids;
     private boolean isCancelableOutside;
     private OnViewClickListener onViewClickListener;
-    private A adapter;
     private int orientation;
     private int dialogAnimationRes;
     private View dialogView;
@@ -42,120 +41,56 @@ class Controller<A extends BaseAdapter> implements Serializable, Parcelable {
         return fragmentManager;
     }
 
-    public void setFragmentManager(FragmentManager fragmentManager) {
-        this.fragmentManager = fragmentManager;
-    }
-
     public int getLayoutRes() {
         return layoutRes;
-    }
-
-    public void setLayoutRes(int layoutRes) {
-        this.layoutRes = layoutRes;
     }
 
     public int getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
     public int getWidth() {
         return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
     }
 
     public float getDimAmount() {
         return dimAmount;
     }
 
-    public void setDimAmount(float dimAmount) {
-        this.dimAmount = dimAmount;
-    }
-
     public int getGravity() {
         return gravity;
-    }
-
-    public void setGravity(int gravity) {
-        this.gravity = gravity;
     }
 
     public String getTag() {
         return tag == null ? "" : tag;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
     public int[] getIds() {
         return ids;
-    }
-
-    public void setIds(int[] ids) {
-        this.ids = ids;
     }
 
     public boolean isCancelableOutside() {
         return isCancelableOutside;
     }
 
-    public void setCancelableOutside(boolean cancelableOutside) {
-        isCancelableOutside = cancelableOutside;
-    }
-
     public OnViewClickListener getOnViewClickListener() {
         return onViewClickListener;
-    }
-
-    public void setOnViewClickListener(OnViewClickListener onViewClickListener) {
-        this.onViewClickListener = onViewClickListener;
-    }
-
-    public A getAdapter() {
-        return adapter;
-    }
-
-    public void setAdapter(A adapter) {
-        this.adapter = adapter;
     }
 
     public int getOrientation() {
         return orientation;
     }
 
-    public void setOrientation(int orientation) {
-        this.orientation = orientation;
-    }
-
     public int getDialogAnimationRes() {
         return dialogAnimationRes;
-    }
-
-    public void setDialogAnimationRes(int dialogAnimationRes) {
-        this.dialogAnimationRes = dialogAnimationRes;
     }
 
     public View getDialogView() {
         return dialogView;
     }
 
-    public void setDialogView(View dialogView) {
-        this.dialogView = dialogView;
-    }
-
     public DialogInterface.OnDismissListener getOnDismissListener() {
         return onDismissListener;
-    }
-
-    public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
-        this.onDismissListener = onDismissListener;
     }
 
     //-----------------序列化---------------------
@@ -212,7 +147,7 @@ class Controller<A extends BaseAdapter> implements Serializable, Parcelable {
     //-----------------序列化结束-----------------------
 
 
-    public static class Params<A extends BaseAdapter> {
+    public static class Params {
         public FragmentManager mFragmentManager;
         public int mLayoutRes;
         public int mWidth;
@@ -224,7 +159,6 @@ class Controller<A extends BaseAdapter> implements Serializable, Parcelable {
         public boolean mIsCancelableOutside = true;
         public OnViewClickListener mOnViewClickListener;
         public int mDialogAnimationRes = 0;//弹窗动画
-        public int listLayoutRes;
         public int orientation = LinearLayoutManager.VERTICAL;//默认RecyclerView的列表方向为垂直方向
         public View mDialogView;//直接使用传入进来的View,而不需要通过解析Xml
         public DialogInterface.OnDismissListener mOnDismissListener;

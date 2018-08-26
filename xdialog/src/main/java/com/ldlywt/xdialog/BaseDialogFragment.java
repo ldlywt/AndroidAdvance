@@ -107,6 +107,8 @@ public abstract class BaseDialogFragment extends AppCompatDialogFragment {
     public static int getScreenHeight(Context context) {
         return context.getResources().getDisplayMetrics().heightPixels;
     }
-
+    public String getFragmentTag(){
+        return BaseDialogFragment.class.getSimpleName();
+    }
 
 }

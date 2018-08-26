@@ -98,4 +98,11 @@ https://blog.csdn.net/column/details/android-imageloader.html
 Okh的源码解析文章见：
 > <https://www.jianshu.com/p/897964b79732>
 
-### 待完成
+### DialogFragment封装
+Q：为什么要使用 DialogFragment？
+- 继承自Fragment，拥有Fragment的生命周期。
+- 当旋转屏幕和按下后退键时可以更好的管理其声明周期
+
+> 具体使用见 `DialogTestFragment`
+
+### 待实现

@@ -95,12 +95,9 @@ public class XDialog extends BaseDialogFragment implements View.OnClickListener 
         return mController.getWidth();
     }
 
+    @Override
     public String getFragmentTag() {
         return mController.getTag();
-    }
-
-    public OnViewClickListener getOnViewClickListener() {
-        return mController.getOnViewClickListener();
     }
 
     @Override
@@ -115,7 +112,7 @@ public class XDialog extends BaseDialogFragment implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        getOnViewClickListener().onViewClick(view, this);
+        mController.getOnViewClickListener().onViewClick(view, this);
     }
 
     public static class Builder {
@@ -123,13 +120,13 @@ public class XDialog extends BaseDialogFragment implements View.OnClickListener 
         Controller.Params params;
 
         public Builder(AppCompatActivity activity) {
-            params = new Controller.Params<>();
+            params = new Controller.Params();
             params.mFragmentManager = activity.getSupportFragmentManager();
 
         }
 
         public Builder(FragmentManager fragmentManager) {
-            params = new Controller.Params<>();
+            params = new Controller.Params();
             params.mFragmentManager = fragmentManager;
         }
 

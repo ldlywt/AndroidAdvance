@@ -27,7 +27,10 @@ import java.util.List;
  *     version: 1.0
  * </pre>
  */
-public class DialogFragment extends BaseFragment {
+public class DialogTestFragment extends BaseFragment {
+
+    private static final String TAG = DialogTestFragment.class.getSimpleName();
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_dialog;
@@ -69,7 +72,7 @@ public class DialogFragment extends BaseFragment {
                 .setScreenWidthAspect(mActivity, 0.8f)   //设置弹窗宽度(参数aspect为屏幕宽度比例 0 - 1f)
 //                .setScreenHeightAspect(mActivity, 0.3f)  //设置弹窗高度(参数aspect为屏幕宽度比例 0 - 1f)
                 .setGravity(Gravity.CENTER)     //设置弹窗展示位置
-                .setTag("DialogTest")   //设置Tag
+                .setTag(TAG)   //设置Tag
                 .setDimAmount(0.6f)     //设置弹窗背景透明度(0-1f)
                 .setCancelableOutside(true)     //弹窗在界面外是否可以点击取消
                 .setDialogAnimationRes(R.style.animate_dialog_scale) //设置弹窗动画
@@ -95,7 +98,7 @@ public class DialogFragment extends BaseFragment {
 
     private class MyAdapter extends BaseQuickAdapter<TestBean,BaseViewHolder>{
 
-        public MyAdapter(int layoutResId, @Nullable List<TestBean> data) {
+        MyAdapter(int layoutResId, @Nullable List<TestBean> data) {
             super(layoutResId, data);
         }
 
