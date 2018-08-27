@@ -20,7 +20,7 @@ public class XToolBar extends AbsToolBar {
 
     @Override
     public int getLayoutRes() {
-        return R.layout.toolbar;
+        return 0;
     }
 
     @Override

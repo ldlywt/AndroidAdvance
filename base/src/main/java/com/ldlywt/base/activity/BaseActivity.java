@@ -3,8 +3,16 @@ package com.ldlywt.base.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import com.ldlywt.base.R;
+import com.ldlywt.base.utils.DensityUtil;
+import com.ldlywt.base.view.CommonTextView;
 
 /**
  * <pre>
@@ -16,6 +24,10 @@ import android.view.Window;
  * </pre>
  */
 public abstract class BaseActivity extends AppCompatActivity {
+
+    private CommonTextView mTitle;
+
+    protected BaseActivity mActivity = BaseActivity.this;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,6 +49,26 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void initTitle() {
+        mTitle = new CommonTextView(this);
+        mTitle
+                .setLeftDrawableLeft(ContextCompat.getDrawable(this,R.drawable.ic_back))
+                .setLeftTextString(getResources().getString(R.string.back))
+                .setLeftTextColor(R.color.white)
+                .setLeftViewIsClickable(true)
+                .setOnCommonTextViewClickListener(new CommonTextView.OnCommonTextViewClickListener(){
+                    @Override
+                    public void onLeftViewClick() {
+                        BaseActivity.super.onBackPressed();
+                    }
+                })
+        ;
+        ViewGroup decorView = (ViewGroup) getWindow().getDecorView();
+        ViewGroup viewGroup = (ViewGroup) decorView.getChildAt(0);
+        viewGroup.addView(mTitle, 0);
+    }
+
+    public CommonTextView getTitleBar() {
+        return mTitle;
     }
 
     /**

@@ -1,9 +1,10 @@
 package com.ldlywt.androidadvancedemo.ui;
 
-import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.ldlywt.androidadvancedemo.R;
@@ -12,12 +13,13 @@ import com.ldlywt.androidadvancedemo.ui.fragment.DialogTestFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.HttpFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.ImagesFragment;
 import com.ldlywt.base.activity.BaseActivity;
+import com.ldlywt.base.utils.DensityUtil;
+import com.ldlywt.base.view.CommonTextView;
 import com.ldlywt.ioc.annomation.event.OnClick;
 import com.ldlywt.ioc.annomation.event.OnLongClick;
 import com.ldlywt.ioc.annomation.network.CheckNet;
 import com.ldlywt.ioc.annomation.resouces.ContentViewById;
 import com.ldlywt.ioc.manager.InjectManager;
-import com.ldlywt.xtoolbar.XToolBar;
 
 @ContentViewById(R.layout.activity_main)
 public class MainActivity extends BaseActivity {
@@ -29,9 +31,25 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initTitle() {
-        new XToolBar
-                .Builder(this)
-                .builder();
+//        XToolBar toolBar = (XToolBar) new XToolBar
+//                .Builder(this)
+//                .builder();
+//        toolBar.getTitle().setLeftTextString("标题");
+        super.initTitle();
+        getTitleBar()
+                .setWidthAndHeight(LinearLayout.LayoutParams.MATCH_PARENT, DensityUtil.dip2px(this,40))
+                .setBackColor(R.color.colorPrimary)
+                .setCenterTextColor(R.color.white)
+                .setCenterTextString("自定义标题")
+                .setRightTextString("添加")
+                .setRightTextColor(R.color.colorAccent)
+                .setRightViewIsClickable(true)
+                .setOnCommonTextViewClickListener(new CommonTextView.OnCommonTextViewClickListener(){
+                    @Override
+                    public void onRightViewClick() {
+                        Toast.makeText(mActivity, "点击了添加", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     //支持数组形式的绑定，绑定多个控件

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="cLeftTextId" type="id" />
+    <item name="cRightTextId" type="id" />
+    <item name="cCenterTextId" type="id" />
+
+    <item name="cCenterBaseLineId" type="id" />
+
+    <item name="cLeftTopTextId" type="id" />
+    <item name="cLeftBottomTextId" type="id" />
+
+    <item name="cCenterTopTextId" type="id" />
+    <item name="cCenterBottomTextId" type="id" />
+
+    <item name="cRightTopTextId" type="id" />
+    <item name="cRightBottomTextId" type="id" />
+
+    <item name="cLeftImageViewId" type="id" />
+    <item name="cRightImageViewId" type="id" />
+
+</resources>
