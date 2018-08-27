@@ -3,6 +3,7 @@ package com.ldlywt.androidadvancedemo.ui;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Toast;
 
 import com.ldlywt.androidadvancedemo.R;
@@ -29,7 +30,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initTitle() {
         new XToolBar
-                .Builder(this, findViewById(R.id.ll_root))
+                .Builder(this)
                 .builder();
     }
 

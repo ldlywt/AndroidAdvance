@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
 
 /**
  * <pre>
@@ -19,15 +20,24 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        hideActionBar();
         initFirst();
         initTitle();
+    }
+
+    protected void hideActionBar() {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
     }
 
     protected void initFirst() {
 
     }
 
-    protected void initTitle(){}
+    protected void initTitle() {
+    }
 
     /**
      * 跳转容器页面

@@ -32,8 +32,11 @@ public class XToolBar extends AbsToolBar {
 
         XParams p;
 
+        public Builder(Context context) {
+            this(context,null);
+        }
+
         public Builder(Context context, ViewGroup viewGroup) {
-            super(context, viewGroup);
             p = new XParams(context,viewGroup);
         }
 
