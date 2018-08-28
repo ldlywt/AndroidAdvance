@@ -1,5 +1,6 @@
 package com.ldlywt.androidadvancedemo;
 
+import com.ldlywt.androidadvancedemo.exception.GlobalCrashException;
 import com.ldlywt.base.BaseApp;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
@@ -19,6 +20,11 @@ public class App extends BaseApp {
     @Override
     public void onCreate() {
         super.onCreate();
+        initLog();
+        GlobalCrashException.getInstance().init(this);
+    }
+
+    private void initLog() {
         FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
                 .showThreadInfo(false)  // 是否显示线程信息，默认为ture
                 .methodCount(2)         // 显示的方法行数，默认为2

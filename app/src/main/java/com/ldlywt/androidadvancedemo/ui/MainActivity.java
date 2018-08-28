@@ -20,6 +20,7 @@ import com.ldlywt.ioc.annomation.event.OnLongClick;
 import com.ldlywt.ioc.annomation.network.CheckNet;
 import com.ldlywt.ioc.annomation.resouces.ContentViewById;
 import com.ldlywt.ioc.manager.InjectManager;
+import com.orhanobut.logger.Logger;
 
 @ContentViewById(R.layout.activity_main)
 public class MainActivity extends BaseActivity {
@@ -52,9 +53,14 @@ public class MainActivity extends BaseActivity {
                 });
     }
 
+    @Override
+    protected void initData() {
+        Logger.i(1/0 + "");
+    }
+
     //支持数组形式的绑定，绑定多个控件
     @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5})
-    @OnLongClick({R.id.btn5})
+//    @OnLongClick({R.id.btn5})
     @CheckNet()
     public void openIoc(View view) {
         switch (view.getId()) {
@@ -72,7 +78,7 @@ public class MainActivity extends BaseActivity {
                 startContainerActivity(DialogTestFragment.class.getCanonicalName());
                 break;
             case R.id.btn5:
-                Toast.makeText(this, "IOC长按", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "IOC长按" + 1 / 0, Toast.LENGTH_SHORT).show();
                 break;
         }
     }

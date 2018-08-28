@@ -35,6 +35,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         hideActionBar();
         initFirst();
         initTitle();
+        initData();
+    }
+
+    protected void initData() {
+
     }
 
     protected void hideActionBar() {
