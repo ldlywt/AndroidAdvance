@@ -61,6 +61,7 @@ variants.all { variant ->
 
 android {
     compileSdkVersion var.android.compileSdkVersion
+    buildToolsVersion var.android.buildToolsVersion
     defaultConfig {
         applicationId "com.ldlywt.androidadvancedemo"
         minSdkVersion var.android.defaultConfig.minSdkVersion
@@ -75,7 +76,6 @@ android {
             proguardFiles getDefaultProguardFile(var.android.buildTypes.release.defaultProguardFile), var.android.buildTypes.release.proguardFile
         }
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
