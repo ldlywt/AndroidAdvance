@@ -1,6 +1,7 @@
 package com.ldlywt.base.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,6 +14,7 @@ import android.widget.LinearLayout;
 import com.ldlywt.base.fragment.BaseFragment;
 
 import java.lang.ref.WeakReference;
+
 import static android.view.View.generateViewId;
 
 
@@ -20,7 +22,7 @@ import static android.view.View.generateViewId;
  * 盛装Fragment的一个容器(代理)Activity
  * 普通界面只需要编写Fragment,使用此Activity盛装,这样就不需要每个界面都在AndroidManifest中注册一遍
  */
-public class ContainerActivity extends BaseActivity {
+public class ContainerActivity extends AppCompatActivity {
     public static final String FRAGMENT = "fragment";
     public static final String BUNDLE = "bundle";
     protected WeakReference<Fragment> mFragment;
@@ -33,7 +35,9 @@ public class ContainerActivity extends BaseActivity {
         mianLayout = new LinearLayout(this);
         mianLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
         //generateViewId()生成不重复的id
-        mianLayout.setId(generateViewId());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            mianLayout.setId(generateViewId());
+        }
         setContentView(mianLayout);
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = fm.findFragmentById(mianLayout.getId());

@@ -30,7 +30,7 @@ public class App extends BaseApp {
                 .methodCount(2)         // 显示的方法行数，默认为2
                 .methodOffset(7)        // 隐藏内部方法调用到偏移量，默认为5
 //                .logStrategy(customLog) // 更改要打印的日志策略。
-                .tag("ldlywt")   // 每个日志的全局标记。默认PRETTY_LOGGER
+                .tag("hello")   // 每个日志的全局标记。默认PRETTY_LOGGER
                 .build();
 
         Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy){

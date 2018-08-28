@@ -25,21 +25,29 @@ import com.ldlywt.base.view.CommonTextView;
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
-    private CommonTextView mTitle;
-
     protected BaseActivity mActivity = BaseActivity.this;
+    private CommonTextView mTitle;
+    private boolean mIsNeedsetContentView = true;
+
+    public boolean isNeedsetContentView() {
+        return mIsNeedsetContentView;
+    }
+
+    public void setNeedsetContentView(boolean needsetContentView) {
+        mIsNeedsetContentView = needsetContentView;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         hideActionBar();
+        if (mIsNeedsetContentView) {
+            setContentView(getLayoutId());
+        }
         initFirst();
         initTitle();
+        initView();
         initData();
-    }
-
-    protected void initData() {
-
     }
 
     protected void hideActionBar() {
@@ -49,6 +57,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    protected abstract int getLayoutId();
+
     protected void initFirst() {
 
     }
@@ -56,11 +66,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void initTitle() {
         mTitle = new CommonTextView(this);
         mTitle
-                .setLeftDrawableLeft(ContextCompat.getDrawable(this,R.drawable.ic_back))
+                .setLeftDrawableLeft(ContextCompat.getDrawable(this, R.drawable.ic_back))
                 .setLeftTextString(getResources().getString(R.string.back))
                 .setLeftTextColor(R.color.white)
                 .setLeftViewIsClickable(true)
-                .setOnCommonTextViewClickListener(new CommonTextView.OnCommonTextViewClickListener(){
+                .setOnCommonTextViewClickListener(new CommonTextView.OnCommonTextViewClickListener() {
                     @Override
                     public void onLeftViewClick() {
                         BaseActivity.super.onBackPressed();
@@ -72,33 +82,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         viewGroup.addView(mTitle, 0);
     }
 
+    protected void initView() {
+
+    }
+
+    protected void initData() {
+
+    }
+
     public CommonTextView getTitleBar() {
         return mTitle;
     }
 
-    /**
-     * 跳转容器页面
-     *
-     * @param canonicalName 规范名 : Fragment.class.getCanonicalName()
-     * @param bundle        跳转所携带的信息
-     */
-    public void startContainerActivity(String canonicalName, Bundle bundle) {
-        Intent intent = new Intent(this, ContainerActivity.class);
-        intent.putExtra(ContainerActivity.FRAGMENT, canonicalName);
-        if (bundle != null) {
-            intent.putExtra(ContainerActivity.BUNDLE, bundle);
-        }
-        startActivity(intent);
-    }
-
-    /**
-     * 跳转容器页面
-     *
-     * @param canonicalName 规范名 : Fragment.class.getCanonicalName()
-     */
-    public void startContainerActivity(String canonicalName) {
-        Intent intent = new Intent(this, ContainerActivity.class);
-        intent.putExtra(ContainerActivity.FRAGMENT, canonicalName);
-        startActivity(intent);
-    }
 }

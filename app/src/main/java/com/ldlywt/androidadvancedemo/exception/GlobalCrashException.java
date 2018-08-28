@@ -72,7 +72,7 @@ public class GlobalCrashException implements Thread.UncaughtExceptionHandler {
             @Override
             public void run() {
                 Looper.prepare();
-                Toast.makeText(mContext, "很抱歉,程序出现异常！", Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext, "很抱歉,程序出现异常！" + ex, Toast.LENGTH_LONG).show();
                 Looper.loop();
             }
         }.start();

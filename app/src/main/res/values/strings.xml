@@ -1,7 +1,4 @@
 <resources>
-    <string name="app_name">AndroidAdvanceDemo</string>
+    <string name="app_name">AdvanceDemo</string>
     <string name="ioc">AOP检查权限</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

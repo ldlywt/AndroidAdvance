@@ -51,7 +51,7 @@ public class ImagesFragment extends BaseFragment {
     protected void initView(View view) {
         RecyclerView recyclerView = view.findViewById(R.id.recycleview);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        recyclerView.addItemDecoration(new DividerItemDecoration(mActivity, DividerItemDecoration.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         mAdapter = new ImageItemAdapter();
         recyclerView.setAdapter(mAdapter);
     }
