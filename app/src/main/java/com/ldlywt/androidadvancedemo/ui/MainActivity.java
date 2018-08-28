@@ -55,7 +55,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        Logger.i(1/0 + "");
+        //自定义全局异常
+//        Logger.i(1/0 + "");
     }
 
     //支持数组形式的绑定，绑定多个控件
