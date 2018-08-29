@@ -13,6 +13,10 @@ import com.ldlywt.androidadvancedemo.utils.MainTabData;
 import com.ldlywt.base.activity.BaseActivity;
 import com.ldlywt.base.utils.DensityUtil;
 import com.ldlywt.base.view.CommonTextView;
+import com.ldlywt.xeventbus.Subscribe;
+import com.ldlywt.xeventbus.ThreadMode;
+import com.ldlywt.xeventbus.XEventBus;
+import com.orhanobut.logger.Logger;
 
 /**
  * <pre>
@@ -123,5 +127,19 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void initFirst() {
+        XEventBus.getDefault().register(this);
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        XEventBus.getDefault().unRegister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void receiverMsg(String msg){
+        Logger.i("来自自定义的EventBus： " + msg);
+    }
 }

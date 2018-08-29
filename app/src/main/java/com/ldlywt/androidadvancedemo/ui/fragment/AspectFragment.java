@@ -22,6 +22,7 @@ import com.ldlywt.ioc.annomation.resouces.ColorById;
 import com.ldlywt.ioc.annomation.resouces.StringById;
 import com.ldlywt.ioc.annomation.resouces.ViewById;
 import com.ldlywt.ioc.manager.InjectManager;
+import com.ldlywt.xeventbus.XEventBus;
 
 /**
  * <pre>
@@ -74,7 +75,7 @@ public class AspectFragment extends BaseFragment {
                 behaviorTrace();
                 break;
             case R.id.btn5:
-
+                XEventBus.getDefault().post("EventBus发送消息");
                 break;
         }
     }

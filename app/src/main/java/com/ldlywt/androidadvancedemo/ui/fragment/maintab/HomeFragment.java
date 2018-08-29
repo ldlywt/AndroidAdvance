@@ -67,7 +67,7 @@ public class HomeFragment extends BaseFragment {
                 ContainerActivityUtils.startContainerActivity(getActivity(),DialogTestFragment.class.getCanonicalName());
                 break;
             case R.id.btn5:
-                Toast.makeText(App.getApp(), "IOC长按" + 1 / 0, Toast.LENGTH_SHORT).show();
+
                 break;
         }
     }
