@@ -123,5 +123,15 @@ PS:我见过很多的 Dialog 的库都把 Listview 或者 RecycleView 封装进�
 
 ### 手写EventBus
 - XEventBus 注册流程(register())
- ![image](https://github.com/ldlywt/AndroidAdvanceDemo/raw/master/images/EventBus流程.png)
--
+
+![image](https://github.com/ldlywt/AndroidAdvanceDemo/raw/master/images/EventBus流程.png)
+
+- XEventBus 注册流程(unRegister())
+```
+    //private Map<Object, List<SubscribeMethod>> mSubscribeMethodMap;
+    public void unRegister(Object object) {
+        if (mSubscribeMethodMap != null) {
+            mSubscribeMethodMap.remove(object);
+        }
+    }
+```
