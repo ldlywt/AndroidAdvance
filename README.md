@@ -25,6 +25,7 @@ PS：
 - 手写OkHttp框架
 - DialogFragment封装
 - Android全局异常捕获
+- 手写EventBus框架
 - 待添加
 
 ---
@@ -120,4 +121,7 @@ PS:我见过很多的 Dialog 的库都把 Listview 或者 RecycleView 封装进�
 
 > 具体使用见 `DialogTestFragment`
 
-### 待实现
+### 手写EventBus
+- XEventBus 注册流程(register())
+ ![image](https://github.com/ldlywt/AndroidAdvanceDemo/raw/master/images/EventBus流程.png)
+-

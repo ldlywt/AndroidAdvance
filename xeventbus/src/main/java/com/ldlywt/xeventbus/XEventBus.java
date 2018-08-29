@@ -64,7 +64,7 @@ public class XEventBus {
                 }
                 Class<?>[] parameterTypes = method.getParameterTypes();
                 if (parameterTypes.length != 1) {
-                    throw new RuntimeException("senduobus 只能接收到一个参数");
+                    throw new RuntimeException("EventBus 只能接收到一个参数");
                 }
                 ThreadMode threadMode = subscribe.threadMode();
                 SubscribeMethod subscribeMethod = new SubscribeMethod(method, threadMode, parameterTypes[0]);
