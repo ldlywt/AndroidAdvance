@@ -9,6 +9,7 @@ import com.ldlywt.androidadvancedemo.ui.fragment.AspectFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.DialogTestFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.HttpFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.ImagesFragment;
+import com.ldlywt.androidadvancedemo.ui.fragment.LoadViewFragment;
 import com.ldlywt.androidadvancedemo.utils.ContainerActivityUtils;
 import com.ldlywt.base.view.BaseFragment;
 import com.ldlywt.ioc.annomation.event.OnClick;
@@ -59,7 +60,6 @@ public class HomeFragment extends BaseFragment {
                 ContainerActivityUtils.startContainerActivity(getActivity(), AspectFragment.class.getCanonicalName());
                 break;
             case R.id.btn2:
-//                startActivity(new Intent(this, ImageActivity.class));
                 ContainerActivityUtils.startContainerActivity(getActivity(),ImagesFragment.class.getCanonicalName());
                 break;
             case R.id.btn3:
@@ -69,7 +69,7 @@ public class HomeFragment extends BaseFragment {
                 ContainerActivityUtils.startContainerActivity(getActivity(),DialogTestFragment.class.getCanonicalName());
                 break;
             case R.id.btn5:
-
+                ContainerActivityUtils.startContainerActivity(getActivity(), LoadViewFragment.class.getCanonicalName());
                 break;
         }
     }
