@@ -1,4 +1,4 @@
-package com.ldlywt.base.activity;
+package com.ldlywt.base.view;
 
 import android.content.Intent;
 import android.os.Build;
@@ -10,8 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
-
-import com.ldlywt.base.fragment.BaseFragment;
 
 import java.lang.ref.WeakReference;
 

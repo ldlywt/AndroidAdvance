@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.ldlywt.base.activity.ContainerActivity;
+import com.ldlywt.base.view.ContainerActivity;
 
 /**
  * <pre>

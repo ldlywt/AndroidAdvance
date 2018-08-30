@@ -1,16 +1,11 @@
 package com.ldlywt.androidadvancedemo.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ldlywt.androidadvancedemo.R;
-import com.ldlywt.base.fragment.BaseFragment;
+import com.ldlywt.base.view.BaseFragment;
 import com.ldlywt.easyhttp.Call;
 import com.ldlywt.easyhttp.Callback;
 import com.ldlywt.easyhttp.HttpClient;
@@ -41,14 +36,19 @@ public class HttpFragment extends BaseFragment {
     private TextView mTvShow;
 
     @Override
-    protected void initData() {
+    public int getLayoutId() {
+        return R.layout.fragment_http;
+    }
+
+    @Override
+    public void initData(Bundle savedInstanceState) {
         InjectManager.inject(this);
         mHttpClient = new HttpClient();
     }
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.fragment_http;
+    public void initView() {
+
     }
 
     @OnClick({R.id.bt_get, R.id.bt_post})

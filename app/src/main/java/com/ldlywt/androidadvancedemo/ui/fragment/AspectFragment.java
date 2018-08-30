@@ -2,12 +2,8 @@ package com.ldlywt.androidadvancedemo.ui.fragment;
 
 import android.Manifest;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.ldlywt.androidadvancedemo.R;
@@ -15,8 +11,8 @@ import com.ldlywt.androidadvancedemo.aspect.BehaviorTrace;
 import com.ldlywt.androidadvancedemo.aspect.CheckLogin;
 import com.ldlywt.androidadvancedemo.aspect.CheckNetwork;
 import com.ldlywt.androidadvancedemo.aspect.CheckPermission;
-import com.ldlywt.base.fragment.BaseFragment;
-import com.ldlywt.base.utils.NetworkUtils;
+import com.ldlywt.base.utils.XNetworkUtils;
+import com.ldlywt.base.view.BaseFragment;
 import com.ldlywt.ioc.annomation.event.OnClick;
 import com.ldlywt.ioc.annomation.resouces.ColorById;
 import com.ldlywt.ioc.annomation.resouces.StringById;
@@ -47,7 +43,7 @@ public class AspectFragment extends BaseFragment {
     private Button btn1;
 
     @Override
-    protected void initData() {
+    public void initData(Bundle savedInstanceState) {
         //必须要写在这里，要等view初始化完才能注入
         InjectManager.inject(this);
         btn1.setText(text);
@@ -55,7 +51,12 @@ public class AspectFragment extends BaseFragment {
     }
 
     @Override
-    protected int getLayoutId() {
+    public void initView() {
+
+    }
+
+    @Override
+    public int getLayoutId() {
         return R.layout.fragment_aspect;
     }
 
@@ -102,7 +103,7 @@ public class AspectFragment extends BaseFragment {
 
 
     public void checkNetworkNormal(){
-        if (NetworkUtils.isNetworkAvailable(getContext())) {
+        if (XNetworkUtils.isAvailable()) {
             Log.i(TAG, "手机有网，可以进入下一个页面");
         } else {
             Log.i(TAG,"请检查手机网络设置");

@@ -10,7 +10,7 @@ import android.util.Log;
  *     author : wutao
  *     e-mail : ldlywt@163.com
  *     time   : 2018/08/12
- *     desc   :
+ *     desc   : 临时使用
  *     version: 1.0
  * </pre>
  */

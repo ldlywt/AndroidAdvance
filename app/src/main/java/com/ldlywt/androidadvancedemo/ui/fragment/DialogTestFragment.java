@@ -1,18 +1,18 @@
 package com.ldlywt.androidadvancedemo.ui.fragment;
 
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.bean.TestBean;
-import com.ldlywt.base.fragment.BaseFragment;
+import com.ldlywt.base.view.BaseFragment;
 import com.ldlywt.xdialog.XDialog;
 
 import java.util.ArrayList;
@@ -32,15 +32,19 @@ public class DialogTestFragment extends BaseFragment {
     private static final String TAG = DialogTestFragment.class.getSimpleName();
 
     @Override
-    protected int getLayoutId() {
+    public int getLayoutId() {
         return R.layout.fragment_dialog;
     }
 
     @Override
-    protected void initView(View view) {
-        super.initView(view);
-        view.findViewById(R.id.btn_dialog).setOnClickListener(view1 -> showDialog());
-        view.findViewById(R.id.btn_list).setOnClickListener(view1 -> showListDialog());
+    public void initData(Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    public void initView() {
+        getView().findViewById(R.id.btn_dialog).setOnClickListener(view1 -> showDialog());
+        getView().findViewById(R.id.btn_list).setOnClickListener(view1 -> showListDialog());
     }
 
     private void showListDialog() {

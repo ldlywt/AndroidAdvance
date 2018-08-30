@@ -1,5 +1,6 @@
 package com.ldlywt.androidadvancedemo.ui;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.view.View;
@@ -10,9 +11,9 @@ import android.widget.Toast;
 
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.utils.MainTabData;
-import com.ldlywt.base.activity.BaseActivity;
-import com.ldlywt.base.utils.DensityUtil;
-import com.ldlywt.base.view.CommonTextView;
+import com.ldlywt.base.utils.XDensityUtils;
+import com.ldlywt.base.view.BaseActivity;
+import com.ldlywt.base.widget.CommonTextView;
 import com.ldlywt.xeventbus.Subscribe;
 import com.ldlywt.xeventbus.ThreadMode;
 import com.ldlywt.xeventbus.XEventBus;
@@ -34,7 +35,7 @@ public class MainActivity extends BaseActivity {
     private Fragment[] mFragments;
 
     @Override
-    protected void initView() {
+    public void initView() {
         mFragments = MainTabData.getFragments("Main");
         mTabLayout = findViewById(R.id.bottom_tab);
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -73,12 +74,13 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected int getLayoutId() {
+    public int getLayoutId() {
         return R.layout.activity_main;
     }
 
     @Override
-    protected void initData() {
+    public void initData(Bundle savedInstanceState) {
+        XEventBus.getDefault().register(this);
         //自定义全局异常
 //        Logger.i(1/0 + "");
     }
@@ -91,7 +93,7 @@ public class MainActivity extends BaseActivity {
 //        toolBar.getTitle().setLeftTextString("标题");
         super.initTitle();
         getTitleBar()
-                .setWidthAndHeight(LinearLayout.LayoutParams.MATCH_PARENT, DensityUtil.dip2px(this, 40))
+                .setWidthAndHeight(LinearLayout.LayoutParams.MATCH_PARENT, XDensityUtils.dp2px( 40))
                 .setBackColor(R.color.colorPrimary)
                 .setCenterTextColor(R.color.white)
                 .setCenterTextString("自定义标题")
@@ -125,11 +127,6 @@ public class MainActivity extends BaseActivity {
         if (fragment != null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fl_container, fragment).commit();
         }
-    }
-
-    @Override
-    protected void initFirst() {
-        XEventBus.getDefault().register(this);
     }
 
     @Override

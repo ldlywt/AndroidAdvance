@@ -3,20 +3,17 @@ package com.ldlywt.androidadvancedemo.ui.fragment.maintab;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
-import android.widget.Toast;
 
-import com.ldlywt.androidadvancedemo.App;
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.ui.fragment.AspectFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.DialogTestFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.HttpFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.ImagesFragment;
 import com.ldlywt.androidadvancedemo.utils.ContainerActivityUtils;
-import com.ldlywt.base.fragment.BaseFragment;
+import com.ldlywt.base.view.BaseFragment;
 import com.ldlywt.ioc.annomation.event.OnClick;
 import com.ldlywt.ioc.annomation.network.CheckNet;
 import com.ldlywt.ioc.manager.InjectManager;
-import com.orhanobut.logger.Logger;
 
 /**
  * <pre>
@@ -38,13 +35,18 @@ public class HomeFragment extends BaseFragment {
     }
 
     @Override
-    protected int getLayoutId() {
+    public int getLayoutId() {
         return R.layout.fragment_home;
     }
 
     @Override
-    protected void initData() {
+    public void initData(Bundle savedInstanceState) {
         InjectManager.inject(this);
+    }
+
+    @Override
+    public void initView() {
+
     }
 
     //支持数组形式的绑定，绑定多个控件

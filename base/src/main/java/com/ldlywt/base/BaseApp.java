@@ -13,14 +13,13 @@ import android.app.Application;
  */
 public class BaseApp extends Application {
 
-    public static boolean isLogin = true;
-
     private static BaseApp sMBaseApp = null;
 
     @Override
     public void onCreate() {
         super.onCreate();
         sMBaseApp = this;
+        XFrame.init(this);
     }
 
     public static BaseApp getApp() {

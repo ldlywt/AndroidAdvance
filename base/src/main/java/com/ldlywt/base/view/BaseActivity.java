@@ -1,18 +1,14 @@
-package com.ldlywt.base.activity;
+package com.ldlywt.base.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.ldlywt.base.R;
-import com.ldlywt.base.utils.DensityUtil;
-import com.ldlywt.base.view.CommonTextView;
+import com.ldlywt.base.widget.CommonTextView;
 
 /**
  * <pre>
@@ -23,31 +19,22 @@ import com.ldlywt.base.view.CommonTextView;
  *     version: 1.0
  * </pre>
  */
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements ICallback{
 
     protected BaseActivity mActivity = BaseActivity.this;
     private CommonTextView mTitle;
-    private boolean mIsNeedsetContentView = true;
 
-    public boolean isNeedsetContentView() {
-        return mIsNeedsetContentView;
-    }
-
-    public void setNeedsetContentView(boolean needsetContentView) {
-        mIsNeedsetContentView = needsetContentView;
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         hideActionBar();
-        if (mIsNeedsetContentView) {
+        if (getLayoutId() > 0) {
             setContentView(getLayoutId());
         }
-        initFirst();
         initTitle();
         initView();
-        initData();
+        initData(savedInstanceState);
     }
 
     protected void hideActionBar() {
@@ -55,12 +42,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
-    }
-
-    protected abstract int getLayoutId();
-
-    protected void initFirst() {
-
     }
 
     protected void initTitle() {
@@ -80,14 +61,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         ViewGroup decorView = (ViewGroup) getWindow().getDecorView();
         ViewGroup viewGroup = (ViewGroup) decorView.getChildAt(0);
         viewGroup.addView(mTitle, 0);
-    }
-
-    protected void initView() {
-
-    }
-
-    protected void initData() {
-
     }
 
     public CommonTextView getTitleBar() {

@@ -1,5 +1,6 @@
 package com.ldlywt.androidadvancedemo.ui.fragment;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
@@ -12,7 +13,7 @@ import android.widget.ImageView;
 import com.google.gson.Gson;
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.bean.PictureBean;
-import com.ldlywt.base.fragment.BaseFragment;
+import com.ldlywt.base.view.BaseFragment;
 import com.ldlywt.easyhttp.Call;
 import com.ldlywt.easyhttp.Callback;
 import com.ldlywt.easyhttp.HttpClient;
@@ -43,13 +44,13 @@ public class ImagesFragment extends BaseFragment {
     private ImageItemAdapter mAdapter;
 
     @Override
-    protected int getLayoutId() {
+    public int getLayoutId() {
         return R.layout.recycleview;
     }
 
     @Override
-    protected void initView(View view) {
-        RecyclerView recyclerView = view.findViewById(R.id.recycleview);
+    public void initView() {
+        RecyclerView recyclerView = getView().findViewById(R.id.recycleview);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         mAdapter = new ImageItemAdapter();
@@ -57,7 +58,7 @@ public class ImagesFragment extends BaseFragment {
     }
 
     @Override
-    protected void initData() {
+    public void initData(Bundle savedInstanceState) {
         initImageLoader();
         HttpClient httpClient = new HttpClient();
         Request request = new Request

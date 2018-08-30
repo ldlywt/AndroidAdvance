@@ -3,7 +3,7 @@ package com.ldlywt.androidadvancedemo.ui.fragment.maintab;
 import android.os.Bundle;
 
 import com.ldlywt.androidadvancedemo.R;
-import com.ldlywt.base.fragment.BaseFragment;
+import com.ldlywt.base.view.BaseFragment;
 
 /**
  * <pre>
@@ -25,7 +25,17 @@ public class AttentionFragment extends BaseFragment{
     }
 
     @Override
-    protected int getLayoutId() {
+    public int getLayoutId() {
         return R.layout.recycleview;
+    }
+
+    @Override
+    public void initData(Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    public void initView() {
+
     }
 }

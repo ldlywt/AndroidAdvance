@@ -2,6 +2,7 @@ package com.ldlywt.androidadvancedemo;
 
 import com.ldlywt.androidadvancedemo.exception.GlobalCrashException;
 import com.ldlywt.base.BaseApp;
+import com.ldlywt.base.XFrame;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
@@ -17,11 +18,20 @@ import com.orhanobut.logger.PrettyFormatStrategy;
  * </pre>
  */
 public class App extends BaseApp {
+
+    public static boolean isLogin = true;
+
     @Override
     public void onCreate() {
         super.onCreate();
         initLog();
         GlobalCrashException.getInstance().init(this);
+        XFrame.initXLoadingView().setEmptyViewResId(R.layout._loading_layout_error);
+        /**
+         * 初始化全局图片加载框架
+         * GlideImageLoader为你的图片加载框架实现类
+         */
+//        XFrame.initXImageLoader(new GlideImageLoader(getApplicationContext());
     }
 
     private void initLog() {
