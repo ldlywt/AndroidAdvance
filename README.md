@@ -38,6 +38,7 @@ PS：
 5. 待开发
 
 ### 手写IOC框架
+使用实例：
 ```
     @ViewById(R.id.tv_ioc)
     private TextView tvIoc;
@@ -55,60 +56,27 @@ PS：
     @CheckNet()
     public void openIoc(View view) {}
 ```
+框架的类
+
+![image](https://github.com/ldlywt/AndroidAdvanceDemo/raw/master/images/手写IOC注解框架.png)
 
 ### 手写图片加载框架
 > 主要来自何洪辉大神：
 https://blog.csdn.net/column/details/android-imageloader.html
 
-初始化
-```
-    private void initImageLoader() {
-        ImageLoaderConfig config = new ImageLoaderConfig()
-                .setLoadingPlaceholder(R.mipmap.loading)
-                .setNotFoundPlaceholder(R.mipmap.not_found)
-                .setCache(new DoubleCache(this))
-                .setThreadCount(4)
-                .setLoadPolicy(new ReversePolicy());
-        SimpleImageLoader.getInstance().init(config);
-    }
-```
+具体使用跟 Glide 差不多
 
-销毁
-```
-    @Override
-    protected void onDestroy() {
-        SimpleImageLoader.getInstance().stop();
-        super.onDestroy();
-    }
-```
-
-加载图片
-```
-    SimpleImageLoader.getInstance().displayImage(imageview,getItem(position));
-```
+![image](https://github.com/ldlywt/AndroidAdvanceDemo/raw/master/images/SimpleImageLoader的基本结构.png)
+![image](https://github.com/ldlywt/AndroidAdvanceDemo/raw/master/images/SimpleImageLoader的工程结构.png)
 
 ### 手写OkHttp框架
 > 主要来自 https://github.com/ouyangshengduo/SenduoHttp
 
-- 实现跟OkHttp一样的Client初始化
-```
-    HttpClient httpClient = new HttpClient();
-```
-- 跟OkHttp一样的同步调用
-```
-    Request request = new Request
-            .Builder()
-            .url("http://www.wanandroid.com/banner/json")
-            .build();
-    Call call = mHttpClient.newCall(request);
-    final Response response = call.execute();
-    Log.i(TAG, "get onResponse: " + response.getBody());
-```
-- 跟OkHttp一样的异步调用
+![image](https://github.com/ldlywt/AndroidAdvanceDemo/raw/master/images/SimpleImageLoader的工程结构.png)
 
-具体见 HttpActivity。
-Okh的源码解析文章见：
-> <https://www.jianshu.com/p/897964b79732>
+- 实现跟 OkHttp 一样的调用
+- 具体使用见 HttpFragment
+- Okhttp的源码解析文章见：<https://www.jianshu.com/p/897964b79732>
 
 ### DialogFragment封装
 Q：为什么要使用 DialogFragment？
