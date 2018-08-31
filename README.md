@@ -56,7 +56,6 @@ PS：
     @CheckNet()
     public void openIoc(View view) {}
 ```
-框架的类
 
 ![image](https://github.com/ldlywt/AndroidAdvanceDemo/raw/master/images/手写IOC注解框架.png)
 
@@ -72,7 +71,7 @@ https://blog.csdn.net/column/details/android-imageloader.html
 ### 手写OkHttp框架
 > 主要来自 https://github.com/ouyangshengduo/SenduoHttp
 
-![image](https://github.com/ldlywt/AndroidAdvanceDemo/raw/master/images/SimpleImageLoader的工程结构.png)
+![image](https://github.com/ldlywt/AndroidAdvanceDemo/raw/master/images/OkHttp工程结构.png)
 
 - 实现跟 OkHttp 一样的调用
 - 具体使用见 HttpFragment
