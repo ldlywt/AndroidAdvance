@@ -65,6 +65,7 @@ ext {
                     logger: 'com.orhanobut:logger:2.1.1',
                     aspectjrt: 'org.aspectj:aspectjrt:1.8.9',
                     okhttp: 'com.squareup.okhttp3:okhttp:3.7.0',
+                    okhttp_log: 'com.squareup.okhttp3:logging-interceptor:3.8.0',
                     BaseRecyclerViewAdapterHelper: 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
                     
             ]

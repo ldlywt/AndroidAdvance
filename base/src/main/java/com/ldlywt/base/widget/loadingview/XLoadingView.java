@@ -5,11 +5,13 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.v4.app.Fragment;
 import android.util.AttributeSet;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.ldlywt.base.R;
+
 import java.util.HashMap;
 import java.util.Map;
 

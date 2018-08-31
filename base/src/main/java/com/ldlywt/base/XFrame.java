@@ -11,10 +11,12 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.util.DisplayMetrics;
 
+import com.ldlywt.base.frame.http.IHttpEngine;
+import com.ldlywt.base.frame.http.XHttp;
 import com.ldlywt.base.utils.XDensityUtils;
 import com.ldlywt.base.utils.XOutdatedUtils;
-import com.ldlywt.base.utils.imageload.ImageLoader;
-import com.ldlywt.base.utils.imageload.XImage;
+import com.ldlywt.base.frame.imageload.ImageLoader;
+import com.ldlywt.base.frame.imageload.XImage;
 import com.ldlywt.base.widget.loadingview.XLoadingView;
 import com.ldlywt.base.widget.loadingview.XLoadingViewConfig;
 
@@ -37,6 +39,10 @@ public class XFrame {
 
     public static XLoadingViewConfig initXLoadingView() {
         return XLoadingView.init();
+    }
+
+    public static void initXHttp(IHttpEngine httpEngine) {
+        XHttp.init(httpEngine);
     }
 
     public static void initXImageLoader(ImageLoader loader) {

@@ -1,4 +1,4 @@
-package com.ldlywt.base.utils.imageload;
+package com.ldlywt.base.frame.imageload;
 
 
 import android.widget.ImageView;

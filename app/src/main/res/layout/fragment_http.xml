@@ -6,20 +6,31 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingTop="20dp"
-    tools:context="com.ldlywt.androidadvancedemo.ui.HttpActivity">
+    android:paddingTop="20dp">
 
     <Button
         android:id="@+id/bt_get"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="GET同步请求" />
+        android:text="手写的GET同步请求" />
 
     <Button
         android:id="@+id/bt_post"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="POST异步请求" />
+        android:text="手写POST异步请求" />
+
+    <Button
+        android:id="@+id/bt_get2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="封装的GET同步请求" />
+
+    <Button
+        android:id="@+id/bt_post2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="封装POST异步请求" />
 
     <TextView
         android:id="@+id/tv_show"

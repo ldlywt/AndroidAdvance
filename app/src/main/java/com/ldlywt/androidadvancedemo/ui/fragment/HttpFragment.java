@@ -5,6 +5,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.ldlywt.androidadvancedemo.R;
+import com.ldlywt.androidadvancedemo.bean.Weather;
+import com.ldlywt.base.frame.http.HttpCallBack;
+import com.ldlywt.base.frame.http.XHttp;
 import com.ldlywt.base.view.BaseFragment;
 import com.ldlywt.easyhttp.Call;
 import com.ldlywt.easyhttp.Callback;
@@ -51,14 +54,22 @@ public class HttpFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.bt_get, R.id.bt_post})
+    @OnClick({R.id.bt_get, R.id.bt_post,R.id.bt_get2, R.id.bt_post2})
     public void open(View v) {
         switch (v.getId()) {
             case R.id.bt_get:
                 get();
+//                getWeather();
                 break;
             case R.id.bt_post:
                 post();
+                break;
+            case R.id.bt_get2:
+//                get();
+                getWeather();
+                break;
+            case R.id.bt_post2:
+
                 break;
         }
     }
@@ -105,5 +116,24 @@ public class HttpFragment extends BaseFragment {
 
                     }
                 });
+    }
+
+
+    public void getWeather() {
+        String url = "http://wthrcdn.etouch.cn/weather_mini?citykey=101010100";
+        XHttp.getDefault().get(url, null, new HttpCallBack<Weather>() {
+            //成功返回你传入的返回类型
+            @Override
+            public void onSuccess(Weather weather) {
+                getActivity().runOnUiThread(() -> mTvShow.setText(weather.getData().getCity() + " \n温度：" +
+                        weather.getData().getWendu() + "度 \n 提示：" +
+                        weather.getData().getGanmao()));
+            }
+
+            @Override
+            public void onFailed(String str) {
+               Logger.e(str);
+            }
+        });
     }
 }

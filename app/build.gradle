@@ -100,6 +100,7 @@ dependencies {
     implementation var.dependencies.design
     //Square
     implementation var.dependencies.okhttp
+    implementation var.dependencies.okhttp_log
     implementation var.dependencies.rxjava2
     implementation var.dependencies.rxandroid
     implementation var.dependencies.retrofit
