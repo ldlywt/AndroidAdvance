@@ -5,7 +5,6 @@ import android.support.annotation.LayoutRes;
 
 import com.ldlywt.base.R;
 
-
 public class XLoadingViewConfig {
 
     private int emptyViewResId = R.layout.xloading_empty_view;
@@ -30,7 +29,6 @@ public class XLoadingViewConfig {
         this.errorViewResId = errorViewResId;
         return this;
     }
-
     public int getLoadingViewResId() {
         return loadingViewResId;
     }

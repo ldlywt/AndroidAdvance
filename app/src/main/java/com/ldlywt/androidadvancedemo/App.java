@@ -29,7 +29,7 @@ public class App extends BaseApp {
         initLog();
         GlobalCrashException.getInstance().init(this);
         XFrame.initXHttp(new OKHttpEngine());
-        XFrame.initXLoadingView().setEmptyViewResId(R.layout._loading_layout_error);
+        XFrame.initXLoadingView().setErrorViewResId(R.layout._loading_layout_error);
         /**
          * 初始化全局图片加载框架
          * GlideImageLoader为你的图片加载框架实现类

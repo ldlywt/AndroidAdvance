@@ -5,11 +5,13 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.v4.app.Fragment;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
 import com.ldlywt.base.R;
 
 import java.util.HashMap;
@@ -20,6 +22,7 @@ import java.util.Map;
  */
 public class XLoadingView extends FrameLayout {
 
+    public static XLoadingViewConfig config = new XLoadingViewConfig();
     private int mEmptyViewResId;
     private int mErrorViewResId;
     private int mLoadingViewResId;
@@ -29,7 +32,24 @@ public class XLoadingView extends FrameLayout {
     private OnClickListener mOnRetryClickListener;
     private Map<Integer, View> mResId = new HashMap<>();
 
-    public static XLoadingViewConfig config=new XLoadingViewConfig();
+    public XLoadingView(Context context) {
+        this(context, null);
+    }
+
+    public XLoadingView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public XLoadingView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        mInflater = LayoutInflater.from(context);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.XLoadingView, defStyleAttr, 0);
+        mEmptyViewResId = a.getResourceId(R.styleable.XLoadingView_emptyView, config.getEmptyViewResId());
+        mErrorViewResId = a.getResourceId(R.styleable.XLoadingView_errorView, config.getErrorViewResId());
+        mLoadingViewResId = a.getResourceId(R.styleable.XLoadingView_loadingView, config.getLoadingViewResId());
+        mNoNetworkViewResId = a.getResourceId(R.styleable.XLoadingView_noNetworkView, config.getNoNetworkViewResId());
+        a.recycle();
+    }
 
     public static XLoadingViewConfig init() {
         return config;
@@ -37,10 +57,6 @@ public class XLoadingView extends FrameLayout {
 
     public static XLoadingView wrap(Activity activity) {
         return wrap(((ViewGroup) activity.findViewById(android.R.id.content)).getChildAt(0));
-    }
-
-    public static XLoadingView wrap(Fragment fragment) {
-        return wrap(fragment.getView());
     }
 
     public static XLoadingView wrap(View view) {
@@ -62,48 +78,17 @@ public class XLoadingView extends FrameLayout {
         return xLoadingView;
     }
 
-    public XLoadingView(Context context) {
-        this(context, null);
-    }
-
-    public XLoadingView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
-
-    public XLoadingView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        mInflater = LayoutInflater.from(context);
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.XLoadingView, defStyleAttr, 0);
-        mEmptyViewResId = a.getResourceId(R.styleable.XLoadingView_emptyView, config.getEmptyViewResId());
-        mErrorViewResId = a.getResourceId(R.styleable.XLoadingView_errorView, config.getErrorViewResId());
-        mLoadingViewResId = a.getResourceId(R.styleable.XLoadingView_loadingView, config.getLoadingViewResId());
-        mNoNetworkViewResId = a.getResourceId(R.styleable.XLoadingView_noNetworkView, config.getNoNetworkViewResId());
-        a.recycle();
-    }
-
     private void setContentView(View view) {
         mContentViewResId = view.getId();
         mResId.put(mContentViewResId, view);
     }
 
+    public static XLoadingView wrap(Fragment fragment) {
+        return wrap(fragment.getView());
+    }
+
     public final void showEmpty() {
         show(mEmptyViewResId);
-    }
-
-    public final void showError() {
-        show(mErrorViewResId);
-    }
-
-    public final void showLoading() {
-        show(mLoadingViewResId);
-    }
-
-    public final void showNoNetwork() {
-        show(mNoNetworkViewResId);
-    }
-
-    public final void showContent() {
-        show(mContentViewResId);
     }
 
     private void show(int resId) {
@@ -121,8 +106,8 @@ public class XLoadingView extends FrameLayout {
         view.setVisibility(GONE);
         addView(view);
         mResId.put(resId, view);
-        if (resId == mErrorViewResId||resId == mNoNetworkViewResId) {
-            View v=view.findViewById(R.id.xloading_retry);
+        if (resId == mErrorViewResId || resId == mNoNetworkViewResId) {
+            View v = view.findViewById(R.id.xloading_retry);
             if (mOnRetryClickListener != null) {
                 if (v != null)
                     v.setOnClickListener(mOnRetryClickListener);
@@ -132,9 +117,23 @@ public class XLoadingView extends FrameLayout {
         }
         return view;
     }
+
+    public final void showError() {
+        show(mErrorViewResId);
+    }
+
+    public final void showNoNetwork() {
+        show(mNoNetworkViewResId);
+    }
+
+    public final void showContent() {
+        show(mContentViewResId);
+    }
+
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+        Log.i("wutao", "onFinishInflate: onFinishInflate");
         if (getChildCount() == 0) {
             return;
         }
@@ -145,6 +144,11 @@ public class XLoadingView extends FrameLayout {
         setContentView(view);
         showLoading();
     }
+
+    public final void showLoading() {
+        show(mLoadingViewResId);
+    }
+
     /**
      * 设置重试点击事件
      *

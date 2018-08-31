@@ -20,11 +20,10 @@ import java.util.Map;
  */
 public class XHttp {
 
-    private static IHttpEngine sHttpEngine;
-    private static XHttp sXHttp;
     public static XHandler handler = new XHandler();
+    private static IHttpEngine sHttpEngine;
 
-    public XHttp() {
+    private XHttp() {
         if (sHttpEngine == null) {
             throw new NullPointerException("Call XFrame.initXHttp(IHttpEngine httpEngine) within your Application onCreate() method." +
                     "Or extends XApplication");
@@ -41,13 +40,11 @@ public class XHttp {
     }
 
     /**
-     * 获取实体类的类型
-     * @param obj
-     * @return
+     * 获取HttpCall上的泛型
      */
-    public static Class<?> analysisClassInfo(Object obj){
-        Type genType=obj.getClass().getGenericSuperclass();
-        Type[] params=((ParameterizedType)genType).getActualTypeArguments();
+    public static Class<?> analysisClassInfo(Object obj) {
+        Type genType = obj.getClass().getGenericSuperclass();
+        Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
         return (Class<?>) params[0];
     }
 

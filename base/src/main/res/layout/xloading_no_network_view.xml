@@ -4,24 +4,26 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/xloading_no_network"/>
+        android:src="@mipmap/xloading_no_network" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/xloading_no_network_text"
         android:layout_margin="@dimen/XFrame_spacing"
+        android:text="@string/xloading_no_network_text"
         android:textColor="@color/XFrame_text_gray"
         android:textSize="@dimen/XFrame_text_size" />
-    <TextView
+
+    <Button
         android:id="@id/xloading_retry"
+        style="@style/xloading_padding_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/xloading_retry_text"
         android:textColor="@color/XFrame_text_gray"
-        android:textSize="@dimen/XFrame_text_size"
-        android:background="@drawable/xloading_btn_selector"
-        style="@style/xloading_padding_style" />
+        android:textSize="@dimen/XFrame_text_size" />
 </LinearLayout>

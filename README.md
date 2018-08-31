@@ -122,6 +122,10 @@ PS:我见过很多的 Dialog 的库都把 Listview 或者 RecycleView 封装进�
 > 具体使用见 `DialogTestFragment`
 
 ### 手写 EventBus
+XEventBus 就只有四个类，如下：
+
+![image](https://github.com/ldlywt/AndroidAdvanceDemo/raw/master/images/XEventBus类.png)
+
 - register()流程 和 post()流程
 
 ![image](https://github.com/ldlywt/AndroidAdvanceDemo/raw/master/images/EventBus流程.png)

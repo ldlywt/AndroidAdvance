@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.widget.Toast;
 
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.utils.ContainerActivityUtils;
@@ -49,10 +50,17 @@ public class LoadViewFragment extends BaseFragment {
     public void initView() {
         mXLoadingView = XLoadingView.wrap(this);
         mXLoadingView.showLoading();
+        mXLoadingView.setOnRetryClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mActivity, "点击了重试按钮", Toast.LENGTH_SHORT).show();
+                mXLoadingView.showNoNetwork();
+            }
+        });
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                mXLoadingView.showEmpty();
+                mXLoadingView.showError();
             }
         }, 3000);
     }

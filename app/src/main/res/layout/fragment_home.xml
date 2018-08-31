@@ -25,7 +25,7 @@
         android:id="@+id/btn3"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="手写okhttp"/>
+        android:text="网络请求"/>
 
     <Button
         android:id="@+id/btn4"
