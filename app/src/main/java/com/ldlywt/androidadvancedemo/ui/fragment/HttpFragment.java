@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.ldlywt.androidadvancedemo.Constant;
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.bean.Weather;
 import com.ldlywt.base.frame.http.HttpCallBack;
@@ -120,8 +121,7 @@ public class HttpFragment extends BaseFragment {
 
 
     public void getWeather() {
-        String url = "http://wthrcdn.etouch.cn/weather_mini?citykey=101010100";
-        XHttp.getDefault().get(url, null, new HttpCallBack<Weather>() {
+        XHttp.getDefault().get(Constant.URL_WEATHER_GET, null, new HttpCallBack<Weather>() {
             //成功返回你传入的返回类型
             @Override
             public void onSuccess(Weather weather) {

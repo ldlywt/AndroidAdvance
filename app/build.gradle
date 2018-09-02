@@ -92,6 +92,7 @@ dependencies {
     implementation project(':base')
     implementation project(':easyimageloader')
     implementation project(':xdialog')
+    implementation project(':xeventbus')
     //Android
     implementation var.dependencies.appcompat_v7
     implementation var.dependencies.support_v4
@@ -108,6 +109,8 @@ dependencies {
     implementation var.dependencies.adapter_rxjava
     implementation var.dependencies.logger
     implementation var.dependencies.aspectjrt
+    annotationProcessor var.dependencies.dagger_compiler
+    implementation var.dependencies.dagger
     implementation var.dependencies.BaseRecyclerViewAdapterHelper
-    implementation project(':xeventbus')
+
 }
