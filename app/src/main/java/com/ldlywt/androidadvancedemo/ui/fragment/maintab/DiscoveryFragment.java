@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import com.ldlywt.androidadvancedemo.Constant;
 import com.ldlywt.androidadvancedemo.R;
-import com.ldlywt.androidadvancedemo.dagger.DaggerDiscoverFragmentComponent;
 import com.ldlywt.base.view.BaseFragment;
 import com.orhanobut.logger.Logger;
 
@@ -48,7 +47,7 @@ public class DiscoveryFragment extends BaseFragment{
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        DaggerDiscoverFragmentComponent.create().inject(this);
+      //  DaggerDiscoverFragmentComponent.create().inject(this);
         Request request = new Request.Builder().url(Constant.URL_WEATHER_GET).build();
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
