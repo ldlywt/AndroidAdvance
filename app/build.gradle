@@ -109,8 +109,8 @@ dependencies {
     implementation var.dependencies.adapter_rxjava
     implementation var.dependencies.logger
     implementation var.dependencies.aspectjrt
-    annotationProcessor var.dependencies.dagger_compiler
-    implementation var.dependencies.dagger
+//    annotationProcessor var.dependencies.dagger_compiler
+//    implementation var.dependencies.dagger
     implementation var.dependencies.BaseRecyclerViewAdapterHelper
 
 }
