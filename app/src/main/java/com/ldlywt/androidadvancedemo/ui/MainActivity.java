@@ -27,6 +27,7 @@ import com.orhanobut.logger.Logger;
  *     time   : 2018/08/28
  *     desc   :
  *     version: 1.0
+ *
  * </pre>
  */
 public class MainActivity extends BaseActivity {
@@ -46,6 +47,7 @@ public class MainActivity extends BaseActivity {
         XEventBus.getDefault().register(this);
         //自定义全局异常
 //        Logger.i(1/0 + "");
+        //我就测试提交
     }
 
     @Override
