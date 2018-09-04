@@ -38,10 +38,6 @@ public class MainTabData {
 
     /**
      * 获取Tab 显示的内容
-     *
-     * @param context
-     * @param position
-     * @return
      */
     public static View getTabView(Context context, int position) {
         View view = LayoutInflater.from(context).inflate(R.layout.home_tab_content, null);

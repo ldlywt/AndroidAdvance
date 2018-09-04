@@ -1,6 +1,8 @@
 package com.ldlywt.androidadvancedemo.ui.fragment.maintab;
 
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.base.view.BaseFragment;
 
@@ -51,6 +53,6 @@ public class DiscoveryFragment extends BaseFragment{
 
     @Override
     public void initView() {
-
+        getView().setBackgroundColor(ContextCompat.getColor(getActivity(),R.color.colorPrimary));
     }
 }

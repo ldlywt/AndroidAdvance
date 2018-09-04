@@ -18,4 +18,5 @@ android {
 
 dependencies {
     implementation var.dependencies.appcompat_v7
+    implementation var.dependencies.appcompat_v7
 }

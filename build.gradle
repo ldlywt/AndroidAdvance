@@ -63,6 +63,7 @@ ext {
                     adapter_rxjava: 'com.squareup.retrofit2:adapter-rxjava:2.2.0',
 
                     logger: 'com.orhanobut:logger:2.1.1',
+                    utilcode: 'com.blankj:utilcode:1.20.0',
                     aspectjrt: 'org.aspectj:aspectjrt:1.8.9',
                     okhttp: 'com.squareup.okhttp3:okhttp:3.7.0',
                     okhttp_log: 'com.squareup.okhttp3:logging-interceptor:3.8.0',

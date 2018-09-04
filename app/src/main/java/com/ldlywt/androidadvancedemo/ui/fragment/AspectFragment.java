@@ -6,12 +6,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.blankj.utilcode.util.NetworkUtils;
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.aspect.BehaviorTrace;
 import com.ldlywt.androidadvancedemo.aspect.CheckLogin;
 import com.ldlywt.androidadvancedemo.aspect.CheckNetwork;
 import com.ldlywt.androidadvancedemo.aspect.CheckPermission;
-import com.ldlywt.base.utils.XNetworkUtils;
 import com.ldlywt.base.view.BaseFragment;
 import com.ldlywt.ioc.annomation.event.OnClick;
 import com.ldlywt.ioc.annomation.resouces.ColorById;
@@ -103,7 +103,7 @@ public class AspectFragment extends BaseFragment {
 
 
     public void checkNetworkNormal(){
-        if (XNetworkUtils.isAvailable()) {
+        if (NetworkUtils.isConnected()) {
             Log.i(TAG, "手机有网，可以进入下一个页面");
         } else {
             Log.i(TAG,"请检查手机网络设置");

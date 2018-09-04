@@ -108,6 +108,7 @@ dependencies {
     implementation var.dependencies.converter_gson
     implementation var.dependencies.adapter_rxjava
     implementation var.dependencies.logger
+    implementation var.dependencies.utilcode
     implementation var.dependencies.aspectjrt
 //    annotationProcessor var.dependencies.dagger_compiler
 //    implementation var.dependencies.dagger

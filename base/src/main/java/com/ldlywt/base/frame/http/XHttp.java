@@ -1,7 +1,5 @@
 package com.ldlywt.base.frame.http;
 
-import android.os.Handler;
-
 import com.ldlywt.base.utils.XHandler;
 
 import java.lang.reflect.ParameterizedType;

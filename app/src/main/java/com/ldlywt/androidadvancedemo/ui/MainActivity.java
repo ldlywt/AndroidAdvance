@@ -9,9 +9,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.FragmentUtils;
+import com.blankj.utilcode.util.SizeUtils;
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.utils.MainTabData;
-import com.ldlywt.base.utils.XDensityUtils;
 import com.ldlywt.base.view.BaseActivity;
 import com.ldlywt.base.widget.CommonTextView;
 import com.ldlywt.xeventbus.Subscribe;
@@ -33,15 +34,29 @@ public class MainActivity extends BaseActivity {
 
     private TabLayout mTabLayout;
     private Fragment[] mFragments;
+    private int curIndex;
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    public void initData(Bundle savedInstanceState) {
+        XEventBus.getDefault().register(this);
+        //自定义全局异常
+//        Logger.i(1/0 + "");
+    }
 
     @Override
     public void initView() {
         mFragments = MainTabData.getFragments("Main");
+        FragmentUtils.add(getSupportFragmentManager(), mFragments, R.id.fl_container, curIndex);
         mTabLayout = findViewById(R.id.bottom_tab);
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                onTabItemSelected(tab.getPosition());
+                showCurrentFragment(tab.getPosition());
                 // Tab 选中之后，改变各个Tab的状态
                 for (int i = 0; i < mTabLayout.getTabCount(); i++) {
                     View view = mTabLayout.getTabAt(i).getCustomView();
@@ -73,16 +88,8 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    @Override
-    public int getLayoutId() {
-        return R.layout.activity_main;
-    }
-
-    @Override
-    public void initData(Bundle savedInstanceState) {
-        XEventBus.getDefault().register(this);
-        //自定义全局异常
-//        Logger.i(1/0 + "");
+    private void showCurrentFragment(int index) {
+        FragmentUtils.showHide(curIndex = index, mFragments);
     }
 
     @Override
@@ -93,7 +100,7 @@ public class MainActivity extends BaseActivity {
 //        toolBar.getTitle().setLeftTextString("标题");
         super.initTitle();
         getTitleBar()
-                .setWidthAndHeight(LinearLayout.LayoutParams.MATCH_PARENT, XDensityUtils.dp2px( 40))
+                .setWidthAndHeight(LinearLayout.LayoutParams.MATCH_PARENT, SizeUtils.dp2px(40))
                 .setBackColor(R.color.colorPrimary)
                 .setCenterTextColor(R.color.white)
                 .setCenterTextString("自定义标题")
@@ -108,27 +115,6 @@ public class MainActivity extends BaseActivity {
                 });
     }
 
-    private void onTabItemSelected(int position) {
-        Fragment fragment = null;
-        switch (position) {
-            case 0:
-                fragment = mFragments[0];
-                break;
-            case 1:
-                fragment = mFragments[1];
-                break;
-            case 2:
-                fragment = mFragments[2];
-                break;
-            case 3:
-                fragment = mFragments[3];
-                break;
-        }
-        if (fragment != null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl_container, fragment).commit();
-        }
-    }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -136,7 +122,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void receiverMsg(String msg){
+    public void receiverMsg(String msg) {
         Logger.i("来自自定义的EventBus： " + msg);
     }
 }

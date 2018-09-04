@@ -3,7 +3,7 @@ package com.ldlywt.androidadvancedemo.aspect;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.ldlywt.base.utils.XNetworkUtils;
+import com.blankj.utilcode.util.NetworkUtils;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -44,7 +44,7 @@ public class CheckNetworkAspect {
         CheckNetwork annotation = signature.getMethod().getAnnotation(CheckNetwork.class);
         if (annotation != null) {
             Context context = AspectUtils.getContext(joinPoint.getThis());
-            if (XNetworkUtils.isAvailable()) {
+            if (NetworkUtils.isConnected()) {
                 Toast.makeText(context, "当前网络正常", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(context, "此时没有网络连接", Toast.LENGTH_SHORT).show();
