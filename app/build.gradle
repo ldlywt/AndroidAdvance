@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-import org.aspectj.bridge.IMessage
+apply plugin: 'android-aspectjx'
+/*import org.aspectj.bridge.IMessage
 import org.aspectj.bridge.MessageHandler
 import org.aspectj.tools.ajc.Main
 
@@ -56,7 +57,7 @@ variants.all { variant ->
             }
         }
     }
-}
+}*/
 
 
 android {
