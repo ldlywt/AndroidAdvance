@@ -38,6 +38,12 @@
         android:id="@+id/btn5"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="待完成"/>
+        android:text="EventBus发消息"/>
+
+    <Button
+        android:id="@+id/btn6"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="防止重复点击"/>
 
 </LinearLayout>
