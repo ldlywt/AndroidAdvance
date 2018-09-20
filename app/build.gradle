@@ -94,6 +94,7 @@ dependencies {
     implementation project(':easyimageloader')
     implementation project(':xdialog')
     implementation project(':xeventbus')
+    implementation project(':xthread')
     //Android
     implementation var.dependencies.appcompat_v7
     implementation var.dependencies.support_v4
