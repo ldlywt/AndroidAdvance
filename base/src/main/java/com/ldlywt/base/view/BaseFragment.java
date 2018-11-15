@@ -41,8 +41,8 @@ public abstract class BaseFragment extends Fragment implements ICallback {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initData(savedInstanceState);
         initView();
+        initData(savedInstanceState);
     }
 
     public boolean onBackPressed() {
