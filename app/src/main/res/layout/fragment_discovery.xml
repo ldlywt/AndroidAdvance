@@ -4,20 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv"
-        android:visibility="gone"
-        android:layout_width="match_parent"
+    <com.ldlywt.androidadvancedemo.view.PieView
+        android:id="@+id/pie"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/bt1"
-        android:text="打开"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <SurfaceView
-        android:id="@+id/surfaceview"
-        android:layout_width="match_parent"
-        android:layout_height="400dp" />
 </LinearLayout>
