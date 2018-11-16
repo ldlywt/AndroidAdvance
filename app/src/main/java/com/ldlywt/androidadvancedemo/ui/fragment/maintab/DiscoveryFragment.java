@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.blankj.utilcode.util.ToastUtils;
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.bean.PieData;
+import com.ldlywt.androidadvancedemo.view.BezierView;
 import com.ldlywt.androidadvancedemo.view.CheckView;
 import com.ldlywt.androidadvancedemo.view.PieView;
 import com.ldlywt.base.view.BaseFragment;
@@ -44,6 +45,11 @@ public class DiscoveryFragment extends BaseFragment {
     public void initView() {
         setPieView();
         setCheckView();
+        setBezierView();
+    }
+
+    private void setBezierView() {
+        BezierView berzier = getView().findViewById(R.id.bezier);
     }
 
     private void setCheckView() {
