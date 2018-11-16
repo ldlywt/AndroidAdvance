@@ -19,7 +19,6 @@ import com.ldlywt.easyhttp.Response;
 import com.ldlywt.ioc.annomation.event.OnClick;
 import com.ldlywt.ioc.annomation.resouces.ViewById;
 import com.ldlywt.ioc.manager.InjectManager;
-import com.ldlywt.xthread.ThreadDispatcher;
 import com.orhanobut.logger.Logger;
 
 import java.io.IOException;
@@ -77,7 +76,7 @@ public class HttpFragment extends BaseFragment {
     }
 
     private void get() {
-        ThreadDispatcher.getDispatcher().postHighPriority(() -> {
+        new Thread(() -> {
             Request request = new Request
                     .Builder()
                     .url("http://www.wanandroid.com/banner/json")
@@ -87,14 +86,11 @@ public class HttpFragment extends BaseFragment {
                 final Response response = call.execute();
 //                Log.i(TAG, "get onResponse: " + response.getBody());
                 Logger.json(response.getBody());
-                ThreadDispatcher.getDispatcher().postOnMain(() -> {
-                    mTvShow.setText(response.getBody());
-                });
-
+                getActivity().runOnUiThread(() -> mTvShow.setText(response.getBody()));
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        });
+        }).start();
     }
 
     private void post() {
@@ -129,14 +125,9 @@ public class HttpFragment extends BaseFragment {
             //成功返回你传入的返回类型
             @Override
             public void onSuccess(Weather weather) {
-                ThreadDispatcher.getDispatcher().postOnMain(new Runnable() {
-                    @Override
-                    public void run() {
-                        mTvShow.setText(weather.getData().getCity() + " \n温度：" +
-                                weather.getData().getWendu() + "度 \n 提示：" +
-                                weather.getData().getGanmao());
-                    }
-                });
+                getActivity().runOnUiThread(() -> mTvShow.setText(weather.getData().getCity() + " \n温度：" +
+                        weather.getData().getWendu() + "度 \n 提示：" +
+                        weather.getData().getGanmao()));
             }
 
             @Override
