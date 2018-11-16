@@ -6,7 +6,13 @@
 
     <com.ldlywt.androidadvancedemo.view.PieView
         android:id="@+id/pie"
+        android:visibility="gone"
         android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.ldlywt.androidadvancedemo.view.CheckView
+        android:id="@+id/check_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </LinearLayout>
