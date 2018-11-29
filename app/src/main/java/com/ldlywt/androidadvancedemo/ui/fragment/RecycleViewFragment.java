@@ -1,15 +1,14 @@
 package com.ldlywt.androidadvancedemo.ui.fragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.ldlywt.androidadvancedemo.R;
-import com.ldlywt.androidadvancedemo.view.decoration.LineDecoration;
+import com.ldlywt.androidadvancedemo.view.decoration.GridDecoration;
 import com.ldlywt.base.view.BaseFragment;
 
 import java.util.ArrayList;
@@ -54,10 +53,13 @@ public class RecycleViewFragment extends BaseFragment {
     @Override
     public void initView() {
         mRecyclerView = getView().findViewById(R.id.recycleview);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         mAdapter = new InnerAdapter();
         mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.addItemDecoration(new LineDecoration(getContext(), 20, Color.RED));
+//        mRecyclerView.addItemDecoration(new LineDecoration(getContext(), 20, Color.RED));
+        GridDecoration decor = new GridDecoration(getContext());
+        mRecyclerView.addItemDecoration(decor);
     }
 
     class InnerAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
