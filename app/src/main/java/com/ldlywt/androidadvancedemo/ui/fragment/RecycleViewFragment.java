@@ -57,9 +57,12 @@ public class RecycleViewFragment extends BaseFragment {
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         mAdapter = new InnerAdapter();
         mRecyclerView.setAdapter(mAdapter);
-//        mRecyclerView.addItemDecoration(new LineDecoration(getContext(), 20, Color.RED));
-        GridDecoration decor = new GridDecoration(getContext());
-        mRecyclerView.addItemDecoration(decor);
+//        mRecyclerView.addItemDecoration(new LineDecoration(getContext()));
+        mRecyclerView.addItemDecoration(new GridDecoration(getContext()));
+//        SpaceDecoration decor = new SpaceDecoration(10);
+//        decor.setPaddingStart(false);
+//        decor.setPaddingEdgeSide(false);
+//        mRecyclerView.addItemDecoration(decor);
     }
 
     class InnerAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
