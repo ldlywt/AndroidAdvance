@@ -6,14 +6,13 @@ import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.support.annotation.StringRes;
-import android.util.DisplayMetrics;
 
 import com.ldlywt.base.frame.http.IHttpEngine;
 import com.ldlywt.base.frame.http.XHttp;
 import com.ldlywt.base.frame.imageload.ImageLoader;
 import com.ldlywt.base.frame.imageload.XImage;
-import com.ldlywt.base.widget.loadingview.XLoadingView;
-import com.ldlywt.base.widget.loadingview.XLoadingViewConfig;
+import com.ldlywt.base.widget.loadingview.XPageStateConfig;
+import com.ldlywt.base.widget.loadingview.XPageStateView;
 
 public class XFrame {
     private static Context context;
@@ -23,8 +22,8 @@ public class XFrame {
     }
 
 
-    public static XLoadingViewConfig initXLoadingView() {
-        return XLoadingView.init();
+    public static XPageStateConfig initXLoadingView() {
+        return XPageStateView.init();
     }
 
     public static void initXHttp(IHttpEngine httpEngine) {

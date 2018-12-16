@@ -5,18 +5,18 @@ import android.support.annotation.LayoutRes;
 
 import com.ldlywt.base.R;
 
-public class XLoadingViewConfig {
+public class XPageStateConfig {
 
-    private int emptyViewResId = R.layout.xloading_empty_view;
-    private int errorViewResId = R.layout.xloading_error_view;
-    private int loadingViewResId = R.layout.xloading_loading_view;
-    private int noNetworkViewResId = R.layout.xloading_no_network_view;
+    private int emptyViewResId = R.layout.xpage_state_empty_view;
+    private int errorViewResId = R.layout.xpage_state_error_view;
+    private int loadingViewResId = R.layout.xpage_state_loading_view;
+    private int noNetworkViewResId = R.layout.xpage_state_no_network_view;
 
     public int getEmptyViewResId() {
         return emptyViewResId;
     }
 
-    public XLoadingViewConfig setEmptyViewResId(@LayoutRes int emptyViewResId) {
+    public XPageStateConfig setEmptyViewResId(@LayoutRes int emptyViewResId) {
         this.emptyViewResId = emptyViewResId;
         return this;
     }
@@ -25,7 +25,7 @@ public class XLoadingViewConfig {
         return errorViewResId;
     }
 
-    public XLoadingViewConfig setErrorViewResId(@LayoutRes int errorViewResId) {
+    public XPageStateConfig setErrorViewResId(@LayoutRes int errorViewResId) {
         this.errorViewResId = errorViewResId;
         return this;
     }
@@ -33,7 +33,7 @@ public class XLoadingViewConfig {
         return loadingViewResId;
     }
 
-    public XLoadingViewConfig setLoadingViewResId(@LayoutRes int loadingViewResId) {
+    public XPageStateConfig setLoadingViewResId(@LayoutRes int loadingViewResId) {
         this.loadingViewResId = loadingViewResId;
         return this;
     }
@@ -42,7 +42,7 @@ public class XLoadingViewConfig {
         return noNetworkViewResId;
     }
 
-    public XLoadingViewConfig setNoNetworkViewResId(@LayoutRes int noNetworkViewResId) {
+    public XPageStateConfig setNoNetworkViewResId(@LayoutRes int noNetworkViewResId) {
         this.noNetworkViewResId = noNetworkViewResId;
         return this;
     }

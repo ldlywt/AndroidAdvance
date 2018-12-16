@@ -6,7 +6,6 @@ import android.content.res.TypedArray;
 import android.support.v4.app.Fragment;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +19,9 @@ import java.util.Map;
 /**
  * 简单实用的页面状态统一管理 ，加载中、无网络、无数据、出错等状态的随意切换
  */
-public class XLoadingView extends FrameLayout {
+public class XPageStateView extends FrameLayout {
 
-    public static XLoadingViewConfig config = new XLoadingViewConfig();
+    public static XPageStateConfig config = new XPageStateConfig();
     private int mEmptyViewResId;
     private int mErrorViewResId;
     private int mLoadingViewResId;
@@ -32,34 +31,34 @@ public class XLoadingView extends FrameLayout {
     private OnClickListener mOnRetryClickListener;
     private Map<Integer, View> mResId = new HashMap<>();
 
-    public XLoadingView(Context context) {
+    public XPageStateView(Context context) {
         this(context, null);
     }
 
-    public XLoadingView(Context context, AttributeSet attrs) {
+    public XPageStateView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public XLoadingView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public XPageStateView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mInflater = LayoutInflater.from(context);
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.XLoadingView, defStyleAttr, 0);
-        mEmptyViewResId = a.getResourceId(R.styleable.XLoadingView_emptyView, config.getEmptyViewResId());
-        mErrorViewResId = a.getResourceId(R.styleable.XLoadingView_errorView, config.getErrorViewResId());
-        mLoadingViewResId = a.getResourceId(R.styleable.XLoadingView_loadingView, config.getLoadingViewResId());
-        mNoNetworkViewResId = a.getResourceId(R.styleable.XLoadingView_noNetworkView, config.getNoNetworkViewResId());
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.XPageStateView, defStyleAttr, 0);
+        mEmptyViewResId = a.getResourceId(R.styleable.XPageStateView_emptyView, config.getEmptyViewResId());
+        mErrorViewResId = a.getResourceId(R.styleable.XPageStateView_errorView, config.getErrorViewResId());
+        mLoadingViewResId = a.getResourceId(R.styleable.XPageStateView_loadingView, config.getLoadingViewResId());
+        mNoNetworkViewResId = a.getResourceId(R.styleable.XPageStateView_noNetworkView, config.getNoNetworkViewResId());
         a.recycle();
     }
 
-    public static XLoadingViewConfig init() {
+    public static XPageStateConfig init() {
         return config;
     }
 
-    public static XLoadingView wrap(Activity activity) {
+    public static XPageStateView wrap(Activity activity) {
         return wrap(((ViewGroup) activity.findViewById(android.R.id.content)).getChildAt(0));
     }
 
-    public static XLoadingView wrap(View view) {
+    public static XPageStateView wrap(View view) {
         if (view == null) {
             throw new RuntimeException("content view can not be null");
         }
@@ -71,7 +70,7 @@ public class XLoadingView extends FrameLayout {
         int index = parent.indexOfChild(view);
         parent.removeView(view);
 
-        XLoadingView xLoadingView = new XLoadingView(view.getContext());
+        XPageStateView xLoadingView = new XPageStateView(view.getContext());
         parent.addView(xLoadingView, index, lp);
         xLoadingView.addView(view);
         xLoadingView.setContentView(view);
@@ -83,7 +82,7 @@ public class XLoadingView extends FrameLayout {
         mResId.put(mContentViewResId, view);
     }
 
-    public static XLoadingView wrap(Fragment fragment) {
+    public static XPageStateView wrap(Fragment fragment) {
         return wrap(fragment.getView());
     }
 

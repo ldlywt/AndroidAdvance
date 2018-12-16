@@ -7,12 +7,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.ldlywt.androidadvancedemo.R;
-import com.ldlywt.androidadvancedemo.utils.ContainerActivityUtils;
 import com.ldlywt.base.view.BaseFragment;
-import com.ldlywt.base.widget.loadingview.XLoadingView;
-import com.ldlywt.ioc.annomation.event.OnClick;
-import com.ldlywt.ioc.annomation.network.CheckNet;
-import com.ldlywt.ioc.manager.InjectManager;
+import com.ldlywt.base.widget.loadingview.XPageStateView;
 
 /**
  * <pre>
@@ -26,7 +22,7 @@ import com.ldlywt.ioc.manager.InjectManager;
 public class LoadViewFragment extends BaseFragment {
 
     private Handler mHandler = new Handler();
-    private XLoadingView mXLoadingView;
+    private XPageStateView mXLoadingView;
 
     public static Fragment newInstance(String from) {
         LoadViewFragment fragment = new LoadViewFragment();
@@ -48,7 +44,7 @@ public class LoadViewFragment extends BaseFragment {
 
     @Override
     public void initView() {
-        mXLoadingView = XLoadingView.wrap(this);
+        mXLoadingView = XPageStateView.wrap(this);
         mXLoadingView.showLoading();
         mXLoadingView.setOnRetryClickListener(new View.OnClickListener() {
             @Override
