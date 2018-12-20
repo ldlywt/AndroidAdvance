@@ -73,13 +73,13 @@ android {
     }
     buildTypes {
         release {
+            buildConfigField("boolean", "isDebug", "false") // 定义 isdubug 的值
             minifyEnabled var.android.buildTypes.release.minifyEnabled
             proguardFiles getDefaultProguardFile(var.android.buildTypes.release.defaultProguardFile), var.android.buildTypes.release.proguardFile
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        debug{
+            buildConfigField("boolean", "isDebug", "true")
+        }
     }
 }
 
