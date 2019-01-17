@@ -8,6 +8,7 @@ import com.ldlywt.androidadvancedemo.bean.PieData;
 import com.ldlywt.androidadvancedemo.view.BezierView;
 import com.ldlywt.androidadvancedemo.view.CheckView;
 import com.ldlywt.androidadvancedemo.view.PieView;
+import com.ldlywt.androidadvancedemo.view.QQHealthView;
 import com.ldlywt.base.view.BaseFragment;
 
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ import java.util.ArrayList;
 public class DiscoveryFragment extends BaseFragment {
 
 
+    private QQHealthView mQQHealthView;
+
     public static DiscoveryFragment newInstance(String from) {
         DiscoveryFragment fragment = new DiscoveryFragment();
         Bundle bundle = new Bundle();
@@ -39,6 +42,7 @@ public class DiscoveryFragment extends BaseFragment {
 
     @Override
     public void initData(Bundle savedInstanceState) {
+        mQQHealthView.setSteps(new int[]{100, 200, 500, 1020});
     }
 
     @Override
@@ -46,6 +50,7 @@ public class DiscoveryFragment extends BaseFragment {
         setPieView();
         setCheckView();
         setBezierView();
+        mQQHealthView = (QQHealthView) getView().findViewById(R.id.view);
     }
 
     private void setBezierView() {
