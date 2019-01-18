@@ -1,0 +1,23 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion var.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion var.android.defaultConfig.minSdkVersion
+        targetSdkVersion var.android.defaultConfig.targetSdkVersion
+        versionCode var.android.defaultConfig.versionCode
+        versionName var.android.defaultConfig.versionName
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation var.dependencies.appcompat_v7
+    implementation var.dependencies.appcompat_v7
+    implementation var.dependencies.recyclerview
+}

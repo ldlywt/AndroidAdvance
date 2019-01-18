@@ -1,1 +1,1 @@
-include ':app', ':ioc', ':easyimageloader', ':easyhttp', ':base', ':xdialog', ':xeventbus'
+include ':app', ':ioc', ':easyimageloader', ':easyhttp', ':base', ':xdialog', ':xeventbus', ':views'

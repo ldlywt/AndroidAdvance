@@ -11,6 +11,7 @@ import com.ldlywt.androidadvancedemo.ui.fragment.HttpFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.ImagesFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.LoadViewFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.RecycleViewFragment;
+import com.ldlywt.androidadvancedemo.ui.fragment.RvBannerFragment;
 import com.ldlywt.androidadvancedemo.utils.ContainerActivityUtils;
 import com.ldlywt.base.view.BaseFragment;
 import com.ldlywt.ioc.annomation.event.OnClick;
@@ -52,7 +53,7 @@ public class HomeFragment extends BaseFragment {
     }
 
     //支持数组形式的绑定，绑定多个控件
-    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6})
+    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6, R.id.btn7})
 //    @OnLongClick({R.id.btn5})
     @CheckNet()
     public void openIoc(View view) {
@@ -74,6 +75,9 @@ public class HomeFragment extends BaseFragment {
                 break;
             case R.id.btn6:
                 ContainerActivityUtils.startContainerActivity(getActivity(), RecycleViewFragment.class.getCanonicalName());
+                break;
+            case R.id.btn7:
+                ContainerActivityUtils.startContainerActivity(getActivity(), RvBannerFragment.class.getCanonicalName());
                 break;
         }
     }

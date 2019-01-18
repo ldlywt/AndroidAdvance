@@ -99,6 +99,7 @@ dependencies {
     implementation project(':easyimageloader')
     implementation project(':xdialog')
     implementation project(':xeventbus')
+    implementation project(':views')
 //    implementation project(':xthread')
     //Android
     implementation var.dependencies.appcompat_v7
@@ -120,5 +121,6 @@ dependencies {
 //    annotationProcessor var.dependencies.dagger_compiler
 //    implementation var.dependencies.dagger
     implementation var.dependencies.BaseRecyclerViewAdapterHelper
+    implementation var.dependencies.glide
 
 }
