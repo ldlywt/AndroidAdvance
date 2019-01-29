@@ -50,4 +50,10 @@
         android:layout_height="wrap_content"
         android:text="Banner" />
 
+    <Button
+        android:id="@+id/btn8"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="双折线图" />
+
 </LinearLayout>

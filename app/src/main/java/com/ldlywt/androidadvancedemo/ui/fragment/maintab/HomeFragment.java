@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.ui.fragment.AspectFragment;
+import com.ldlywt.androidadvancedemo.ui.fragment.ChartFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.DialogTestFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.HttpFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.ImagesFragment;
@@ -53,7 +54,7 @@ public class HomeFragment extends BaseFragment {
     }
 
     //支持数组形式的绑定，绑定多个控件
-    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6, R.id.btn7})
+    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8})
 //    @OnLongClick({R.id.btn5})
     @CheckNet()
     public void openIoc(View view) {
@@ -78,6 +79,9 @@ public class HomeFragment extends BaseFragment {
                 break;
             case R.id.btn7:
                 ContainerActivityUtils.startContainerActivity(getActivity(), RvBannerFragment.class.getCanonicalName());
+                break;
+            case R.id.btn8:
+                ContainerActivityUtils.startContainerActivity(getActivity(), ChartFragment.class.getCanonicalName());
                 break;
         }
     }

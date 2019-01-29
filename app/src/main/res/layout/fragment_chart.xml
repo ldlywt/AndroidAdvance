@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#171C27"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_pre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="向前移动" />
+
+        <Button
+            android:id="@+id/bt_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="向后移动" />
+    </LinearLayout>
+
+    <com.ldlywt.views.ChartView
+        android:id="@+id/chartView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        app:bgColor="#ffffff"
+        app:interval="80dp"
+        app:isHideY="false"
+        app:isScroll="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:lineColorOne="#02bbb7"
+        app:textBoxPosition="right"
+        app:xyLineColor="#e2e2e2"
+        app:xyLineWidth="1dp"
+        app:xyTextColor="#7e7e7e"
+        app:xyTextSize="24sp" />
+</LinearLayout>
+

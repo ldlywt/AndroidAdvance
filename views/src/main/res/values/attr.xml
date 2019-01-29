@@ -15,4 +15,25 @@
         </attr>
         <attr name="rvb_autoPlaying" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="chartView">
+        <attr name="xyLineColor" format="color" />
+        <attr name="bgColor" format="color" />
+        <attr name="xyTextColor" format="color" />
+        <attr name="lineColorTwo" format="color" />
+        <attr name="lineColorOne" format="color" />
+        <attr name="dashLineColor" format="color" />
+        <attr name="xyLineWidth" format="dimension" />
+        <attr name="xyTextSize" format="dimension" />
+        <!-- x轴各个坐标点水平间距 -->
+        <attr name="interval" format="dimension" />
+        <!--是否在ACTION_UP时，根据速度进行自滑动，建议关闭，过于占用GPU-->
+        <attr name="isScroll" format="boolean" />
+        <attr name="isHideY" format="boolean" />
+        <attr name="isHideX" format="boolean" />
+        <attr name="textBoxPosition" format="enum">
+            <enum name="top" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+    </declare-styleable>
 </resources>
