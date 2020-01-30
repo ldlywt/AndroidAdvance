@@ -62,7 +62,6 @@ variants.all { variant ->
 
 android {
     compileSdkVersion var.android.compileSdkVersion
-    buildToolsVersion var.android.buildToolsVersion
     defaultConfig {
         applicationId "com.ldlywt.androidadvancedemo"
         minSdkVersion var.android.defaultConfig.minSdkVersion
