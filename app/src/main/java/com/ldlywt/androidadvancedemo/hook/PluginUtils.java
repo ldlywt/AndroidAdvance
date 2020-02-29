@@ -17,7 +17,7 @@ import dalvik.system.PathClassLoader;
  *     version: 1.0
  * </pre>
  */
-public class Plugin {
+public class PluginUtils {
 
     private final static String apkPath = "/sdcard/plugin-debug.apk";
 

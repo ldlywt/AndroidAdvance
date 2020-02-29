@@ -2,7 +2,6 @@ package com.ldlywt.androidadvancedemo;
 
 import com.ldlywt.androidadvancedemo.exception.GlobalCrashException;
 import com.ldlywt.androidadvancedemo.http.OKHttpEngine;
-import com.ldlywt.androidadvancedemo.http.RetrofitEngine;
 import com.ldlywt.base.BaseApp;
 import com.ldlywt.base.XFrame;
 import com.orhanobut.logger.AndroidLogAdapter;

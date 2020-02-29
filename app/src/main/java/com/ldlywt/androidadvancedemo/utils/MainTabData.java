@@ -11,7 +11,7 @@ import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.ui.fragment.maintab.AttentionFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.maintab.DiscoveryFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.maintab.HomeFragment;
-import com.ldlywt.androidadvancedemo.ui.fragment.maintab.ProfileFragment;
+import com.ldlywt.androidadvancedemo.ui.fragment.maintab.MineFragment;
 
 /**
  * <pre>
@@ -32,7 +32,7 @@ public class MainTabData {
         fragments[0] = HomeFragment.newInstance(from);
         fragments[1] = DiscoveryFragment.newInstance(from);
         fragments[2] = AttentionFragment.newInstance(from);
-        fragments[3] = ProfileFragment.newInstance(from);
+        fragments[3] = MineFragment.newInstance(from);
         return fragments;
     }
 

@@ -9,11 +9,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.blankj.utilcode.util.FragmentUtils;
 import com.blankj.utilcode.util.SizeUtils;
 import com.ldlywt.androidadvancedemo.R;
+import com.ldlywt.androidadvancedemo.hook.HookUtils;
 import com.ldlywt.androidadvancedemo.utils.MainTabData;
 import com.ldlywt.base.view.BaseActivity;
 import com.ldlywt.base.widget.CommonTextView;
@@ -50,7 +50,8 @@ public class MainActivity extends BaseActivity {
         //自定义全局异常
 //        Logger.i(1/0 + "");
         //我就测试提交
-        hookTest();
+//        hookTest();
+        HookUtils.hookInstrumentation();
     }
 
     private void hookTest() {
@@ -123,7 +124,7 @@ public class MainActivity extends BaseActivity {
                 .setOnCommonTextViewClickListener(new CommonTextView.OnCommonTextViewClickListener() {
                     @Override
                     public void onRightViewClick() {
-                        Toast.makeText(mActivity, "点击了添加", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, TestActivity.class));
                     }
                 });
     }

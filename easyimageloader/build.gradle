@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion var.android.compileSdkVersion
@@ -19,4 +21,8 @@ android {
 dependencies {
     implementation var.dependencies.appcompat_v7
     implementation var.dependencies.okhttp
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
