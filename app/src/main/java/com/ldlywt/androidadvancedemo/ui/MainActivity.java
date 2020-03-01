@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.blankj.utilcode.util.FragmentUtils;
 import com.blankj.utilcode.util.SizeUtils;
 import com.ldlywt.androidadvancedemo.R;
-import com.ldlywt.androidadvancedemo.hook.HookUtils;
 import com.ldlywt.androidadvancedemo.utils.MainTabData;
 import com.ldlywt.base.view.BaseActivity;
 import com.ldlywt.base.widget.CommonTextView;
@@ -51,7 +50,6 @@ public class MainActivity extends BaseActivity {
 //        Logger.i(1/0 + "");
         //我就测试提交
 //        hookTest();
-        HookUtils.hookInstrumentation();
     }
 
     private void hookTest() {

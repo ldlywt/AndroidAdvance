@@ -1,6 +1,7 @@
 package com.ldlywt.androidadvancedemo;
 
 import com.ldlywt.androidadvancedemo.exception.GlobalCrashException;
+import com.ldlywt.androidadvancedemo.hook.HookAms;
 import com.ldlywt.androidadvancedemo.http.OKHttpEngine;
 import com.ldlywt.base.BaseApp;
 import com.ldlywt.base.XFrame;
@@ -34,6 +35,7 @@ public class App extends BaseApp {
          * GlideImageLoader为你的图片加载框架实现类
          */
 //        XFrame.initXImageLoader(new GlideImageLoader(getApplicationContext());
+        HookAms.hookAms();
     }
 
     private void initLog() {
