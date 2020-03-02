@@ -1,1 +1,3 @@
 include ':app', ':ioc', ':easyimageloader', ':easyhttp', ':base', ':xdialog', ':xeventbus', ':views'
+include ':plugin'
+include ':hookdemo'

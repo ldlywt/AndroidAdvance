@@ -1,7 +1,5 @@
 package com.ldlywt.androidadvancedemo.ui;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -48,15 +46,6 @@ public class MainActivity extends BaseActivity {
         XEventBus.getDefault().register(this);
         //自定义全局异常
 //        Logger.i(1/0 + "");
-        //我就测试提交
-//        hookTest();
-    }
-
-    private void hookTest() {
-        com.fastaac.InstrumentationProxy.replaceActivityInstrumentation(this);
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("http://www.baidu.com"));
-        startActivity(intent);
     }
 
 
@@ -122,7 +111,6 @@ public class MainActivity extends BaseActivity {
                 .setOnCommonTextViewClickListener(new CommonTextView.OnCommonTextViewClickListener() {
                     @Override
                     public void onRightViewClick() {
-                        startActivity(new Intent(MainActivity.this, TestActivity.class));
                     }
                 });
     }
