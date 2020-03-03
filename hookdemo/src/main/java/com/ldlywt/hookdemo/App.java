@@ -21,6 +21,7 @@ public class App extends Application {
         LoadUtil.loadClass(this);
         //方式一
 //        mResources = LoadUtil.loadResource(this);
+        HookUtil.hookPMS(this);
         HookUtil.hookAMS();
         HookUtil.hookHandler();
     }

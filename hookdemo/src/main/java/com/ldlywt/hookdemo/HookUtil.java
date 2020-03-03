@@ -1,6 +1,8 @@
 package com.ldlywt.hookdemo;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
@@ -11,10 +13,12 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * 来源于享学课堂
+ * 基于api 28
  */
 public class HookUtil {
 
@@ -54,7 +58,8 @@ public class HookUtil {
                         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                             // IActivityManager 的方法执行的时候，都会先跑这儿
                             if ("startActivity".equals(method.getName())) {
-                                Log.i("wutao", "hook到 : startActivity");
+                                Log.i("wutao", "----hookAMS-----");
+                                Log.i("wutao", "method:" + method.getName() + " called with args:" + Arrays.toString(args));
                                 // 替换Intent
                                 int index = 0;
 
@@ -90,6 +95,46 @@ public class HookUtil {
         }
 
 
+    }
+
+
+    public static void hookPMS(Context context) {
+        try {
+            Class<?> activityThreadClass = Class.forName("android.app.ActivityThread");
+
+            // 获取全局的ActivityThread对象
+            Field sCurrentActivityThreadField = activityThreadClass.getDeclaredField("sCurrentActivityThread");
+            sCurrentActivityThreadField.setAccessible(true);
+            Object activityThread = sCurrentActivityThreadField.get(null);
+
+            // 获取ActivityThread里面原始的 sPackageManager
+            Field sPackageManagerField = activityThreadClass.getDeclaredField("sPackageManager");
+            sPackageManagerField.setAccessible(true);
+            final Object sPackageManager = sPackageManagerField.get(activityThreadClass);
+
+            // 准备好代理对象, 用来替换原始的对象
+            Class<?> iPackageManagerClass = Class.forName("android.content.pm.IPackageManager");
+
+            Object proxy = Proxy.newProxyInstance(iPackageManagerClass.getClassLoader(), new Class[]{iPackageManagerClass}, new InvocationHandler() {
+                @Override
+                public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                    Log.d("wutao", "----hookPMS-----");
+                    Log.d("wutao", "method:" + method.getName() + " called with args:" + Arrays.toString(args));
+                    return method.invoke(sPackageManager, args);
+                }
+            });
+            // 1. 替换掉ActivityThread里面的 sPackageManager 字段
+            sPackageManagerField.set(activityThread, proxy);
+
+            // 2. 替换 ApplicationPackageManager里面的 mPM对象
+            PackageManager pm = context.getPackageManager();
+            Field mPmField = pm.getClass().getDeclaredField("mPM");
+            mPmField.setAccessible(true);
+            mPmField.set(pm, proxy);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
