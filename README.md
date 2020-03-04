@@ -26,6 +26,7 @@ PS：
 - DialogFragment封装
 - Android全局异常捕获
 - 手写EventBus框架
+- 插件化和Hook技术
 - 待添加
 
 ---
@@ -108,3 +109,8 @@ XEventBus 就只有四个类，如下：
 ```
 
 > 主要通过注解和反射来实现
+
+### 插件化和Hook技术
+- 从sd中加载apk
+- hook AMS
+- hook PMS
