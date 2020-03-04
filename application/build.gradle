@@ -6,7 +6,7 @@ android {
     compileSdkVersion var.android.compileSdkVersion
     buildToolsVersion var.android.buildToolsVersion
     defaultConfig {
-        applicationId "com.ldlywt.androidadvancedemo"
+        applicationId "com.ldlywt.application"
         minSdkVersion var.android.defaultConfig.minSdkVersion
         targetSdkVersion var.android.defaultConfig.targetSdkVersion
         versionCode var.android.defaultConfig.versionCode
@@ -39,6 +39,7 @@ dependencies {
     implementation project(':xdialog')
     implementation project(':xeventbus')
     implementation project(':views')
+//    implementation project(':xthread')
     //Android
     implementation var.dependencies.support
     implementation var.dependencies.design

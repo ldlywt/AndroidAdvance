@@ -1,25 +1,32 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
-
+    compileSdkVersion var.android.compileSdkVersion
+    buildToolsVersion var.android.buildToolsVersion
     defaultConfig {
         applicationId "com.ldlywt.hookdemo"
-        minSdkVersion 16
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
-
+        minSdkVersion var.android.defaultConfig.minSdkVersion
+        targetSdkVersion var.android.defaultConfig.targetSdkVersion
+        versionCode var.android.defaultConfig.versionCode
+        versionName var.android.defaultConfig.versionName
     }
-
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("boolean", "isDebug", "false") // 定义 isdubug 的值
+            minifyEnabled var.android.buildTypes.release.minifyEnabled
+            proguardFiles getDefaultProguardFile(var.android.buildTypes.release.defaultProguardFile), var.android.buildTypes.release.proguardFile
+        }
+        debug {
+            buildConfigField("boolean", "isDebug", "true")
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -27,4 +34,5 @@ dependencies {
 
     implementation var.dependencies.support
     implementation var.dependencies.constraintlayout
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
