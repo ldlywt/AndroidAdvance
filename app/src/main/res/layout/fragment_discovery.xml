@@ -4,26 +4,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.ldlywt.androidadvancedemo.view.PieView
+    <com.ldlywt.androidadvance.view.PieView
         android:id="@+id/pie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="gone" />
 
-    <com.ldlywt.androidadvancedemo.view.CheckView
+    <com.ldlywt.androidadvance.view.CheckView
         android:id="@+id/check_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone" />
 
-    <com.ldlywt.androidadvancedemo.view.BezierView
+    <com.ldlywt.androidadvance.view.BezierView
         android:id="@+id/bezier"
         android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <com.ldlywt.androidadvancedemo.view.QQHealthView
+    <com.ldlywt.androidadvance.view.QQHealthView
         android:id="@+id/view"
         android:layout_gravity="center"
         android:layout_width="400dp"

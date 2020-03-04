@@ -6,7 +6,7 @@ android {
     compileSdkVersion var.android.compileSdkVersion
     buildToolsVersion var.android.buildToolsVersion
     defaultConfig {
-        applicationId "com.ldlywt.androidadvancedemo"
+        applicationId "com.ldlywt.androidadvance"
         minSdkVersion var.android.defaultConfig.minSdkVersion
         targetSdkVersion var.android.defaultConfig.targetSdkVersion
         versionCode var.android.defaultConfig.versionCode

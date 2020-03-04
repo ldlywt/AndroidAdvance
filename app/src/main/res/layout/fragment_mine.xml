@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="com.ldlywt.androidadvancedemo.ui.MainActivity">
+    tools:context="com.ldlywt.androidadvance.ui.MainActivity">
 
     <Button
         android:id="@+id/startActivity"
