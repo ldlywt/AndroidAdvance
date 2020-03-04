@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.support.annotation.StringRes;
 
 import com.ldlywt.base.frame.http.IHttpEngine;
 import com.ldlywt.base.frame.http.XHttp;
@@ -13,6 +12,8 @@ import com.ldlywt.base.frame.imageload.ImageLoader;
 import com.ldlywt.base.frame.imageload.XImage;
 import com.ldlywt.base.widget.loadingview.XPageStateConfig;
 import com.ldlywt.base.widget.loadingview.XPageStateView;
+
+import androidx.annotation.StringRes;
 
 public class XFrame {
     private static Context context;

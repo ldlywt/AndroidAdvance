@@ -1,8 +1,6 @@
 package com.ldlywt.androidadvancedemo.ui;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -10,6 +8,7 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.util.FragmentUtils;
 import com.blankj.utilcode.util.SizeUtils;
+import com.google.android.material.tabs.TabLayout;
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.androidadvancedemo.utils.MainTabData;
 import com.ldlywt.base.view.BaseActivity;
@@ -18,6 +17,8 @@ import com.ldlywt.xeventbus.Subscribe;
 import com.ldlywt.xeventbus.ThreadMode;
 import com.ldlywt.xeventbus.XEventBus;
 import com.orhanobut.logger.Logger;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * <pre>

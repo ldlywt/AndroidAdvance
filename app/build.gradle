@@ -1,66 +1,7 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'android-aspectjx'
-/*import org.aspectj.bridge.IMessage
-import org.aspectj.bridge.MessageHandler
-import org.aspectj.tools.ajc.Main
-
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'org.aspectj:aspectjtools:1.8.9'
-        classpath 'org.aspectj:aspectjweaver:1.8.9'
-    }
-}
-repositories {
-    mavenCentral()
-}
-final def log = project.logger
-final def variants = project.android.applicationVariants
-variants.all { variant ->
-    if (!variant.buildType.isDebuggable()) {
-        log.debug("Skipping non-debuggable build type '${variant.buildType.name}'.")
-        return;
-    }
-
-    JavaCompile javaCompile = variant.javaCompile
-    javaCompile.doLast {
-        String[] args = ["-showWeaveInfo",
-                         "-1.8",
-                         "-inpath", javaCompile.destinationDir.toString(),
-                         "-aspectpath", javaCompile.classpath.asPath,
-                         "-d", javaCompile.destinationDir.toString(),
-                         "-classpath", javaCompile.classpath.asPath,
-                         "-bootclasspath", project.android.bootClasspath.join(File.pathSeparator)]
-        log.debug "ajc args: " + Arrays.toString(args)
-
-        MessageHandler handler = new MessageHandler(true);
-        new Main().run(args, handler);
-        for (IMessage message : handler.getMessages(null, true)) {
-            switch (message.getKind()) {
-                case IMessage.ABORT:
-                case IMessage.ERROR:
-                case IMessage.FAIL:
-                    log.error message.message, message.thrown
-                    break;
-                case IMessage.WARNING:
-                    log.warn message.message, message.thrown
-                    break;
-                case IMessage.INFO:
-                    log.info message.message, message.thrown
-                    break;
-                case IMessage.DEBUG:
-                    log.debug message.message, message.thrown
-                    break;
-            }
-        }
-    }
-}*/
-
 
 android {
     compileSdkVersion var.android.compileSdkVersion
@@ -90,7 +31,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation var.dependencies.constraintlayout
     implementation project(':ioc')
     implementation project(':easyhttp')
     implementation project(':base')
@@ -100,24 +41,16 @@ dependencies {
     implementation project(':views')
 //    implementation project(':xthread')
     //Android
-    implementation var.dependencies.appcompat_v7
-    implementation var.dependencies.support_v4
-    implementation var.dependencies.constraint_layout
-    implementation var.dependencies.recyclerview
+    implementation var.dependencies.support
     implementation var.dependencies.design
+    implementation var.dependencies.constraintlayout
+    implementation var.dependencies.recyclerview
     //Square
+    implementation var.dependencies.gson
     implementation var.dependencies.okhttp
     implementation var.dependencies.okhttp_log
-    implementation var.dependencies.rxjava2
-    implementation var.dependencies.rxandroid
-    implementation var.dependencies.retrofit
-    implementation var.dependencies.converter_gson
-    implementation var.dependencies.adapter_rxjava
     implementation var.dependencies.logger
     implementation var.dependencies.utilcode
-    implementation var.dependencies.aspectjrt
-//    annotationProcessor var.dependencies.dagger_compiler
-//    implementation var.dependencies.dagger
     implementation var.dependencies.BaseRecyclerViewAdapterHelper
     implementation var.dependencies.glide
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

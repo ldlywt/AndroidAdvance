@@ -3,8 +3,6 @@ package com.ldlywt.base.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.ColorRes;
-import android.support.v4.content.ContextCompat;
 import android.text.InputFilter;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -16,6 +14,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ldlywt.base.R;
+
+import androidx.annotation.ColorRes;
+import androidx.core.content.ContextCompat;
 
 /**
  * Created by allen on 2016/11/21.

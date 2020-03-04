@@ -3,11 +3,12 @@ package com.ldlywt.plugin;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.ContextThemeWrapper;
 
 import java.lang.reflect.Field;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * <pre>

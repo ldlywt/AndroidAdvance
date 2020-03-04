@@ -3,7 +3,6 @@ package com.ldlywt.base.widget.loadingview;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v4.app.Fragment;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +14,8 @@ import com.ldlywt.base.R;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * 简单实用的页面状态统一管理 ，加载中、无网络、无数据、出错等状态的随意切换

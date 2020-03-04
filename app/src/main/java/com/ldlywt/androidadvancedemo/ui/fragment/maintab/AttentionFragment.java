@@ -1,10 +1,11 @@
 package com.ldlywt.androidadvancedemo.ui.fragment.maintab;
 
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.base.view.BaseFragment;
+
+import androidx.core.content.ContextCompat;
 
 /**
  * <pre>

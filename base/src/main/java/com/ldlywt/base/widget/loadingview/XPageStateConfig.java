@@ -1,9 +1,9 @@
 package com.ldlywt.base.widget.loadingview;
 
 
-import android.support.annotation.LayoutRes;
-
 import com.ldlywt.base.R;
+
+import androidx.annotation.LayoutRes;
 
 public class XPageStateConfig {
 

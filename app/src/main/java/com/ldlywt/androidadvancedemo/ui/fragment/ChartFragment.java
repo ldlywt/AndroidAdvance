@@ -1,7 +1,6 @@
 package com.ldlywt.androidadvancedemo.ui.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
 
@@ -10,6 +9,8 @@ import com.ldlywt.base.view.BaseFragment;
 import com.ldlywt.views.ChartView;
 
 import java.util.ArrayList;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * <pre>

@@ -1,7 +1,6 @@
 package com.ldlywt.androidadvancedemo.ui.fragment.maintab;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.ldlywt.androidadvancedemo.R;
@@ -18,6 +17,8 @@ import com.ldlywt.base.view.BaseFragment;
 import com.ldlywt.ioc.annomation.event.OnClick;
 import com.ldlywt.ioc.annomation.network.CheckNet;
 import com.ldlywt.ioc.manager.InjectManager;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * <pre>

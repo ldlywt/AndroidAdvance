@@ -1,7 +1,6 @@
 package com.ldlywt.androidadvancedemo.utils;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +11,8 @@ import com.ldlywt.androidadvancedemo.ui.fragment.maintab.AttentionFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.maintab.DiscoveryFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.maintab.HomeFragment;
 import com.ldlywt.androidadvancedemo.ui.fragment.maintab.MineFragment;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * <pre>

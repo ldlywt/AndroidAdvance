@@ -1,3 +1,4 @@
+/*
 package com.ldlywt.androidadvancedemo.http;
 
 import com.ldlywt.androidadvancedemo.bean.Weather;
@@ -15,6 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
+*/
 /**
  * <pre>
  *     author : lex
@@ -23,7 +25,8 @@ import retrofit2.http.Query;
  *     desc   :
  *     version: 1.0
  * </pre>
- */
+ *//*
+
 public class RetrofitEngine implements IHttpEngine {
 
     private Retrofit mRetrofit;
@@ -67,3 +70,4 @@ public class RetrofitEngine implements IHttpEngine {
         Call<Weather> getWeather(@Query("citykey") int citykey);
     }
 }
+*/

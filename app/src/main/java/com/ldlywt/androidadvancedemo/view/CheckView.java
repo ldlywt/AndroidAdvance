@@ -9,11 +9,12 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
 import com.ldlywt.androidadvancedemo.R;
+
+import androidx.annotation.Nullable;
 
 /**
  * <pre>

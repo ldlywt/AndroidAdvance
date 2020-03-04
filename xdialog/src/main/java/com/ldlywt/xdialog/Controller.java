@@ -3,11 +3,12 @@ package com.ldlywt.xdialog;
 import android.content.DialogInterface;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v4.app.FragmentManager;
 import android.view.Gravity;
 import android.view.View;
 
 import java.io.Serializable;
+
+import androidx.fragment.app.FragmentManager;
 
 /**
  * <pre>

@@ -3,12 +3,13 @@ package com.ldlywt.hookdemo.ui;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.ldlywt.hookdemo.R;
 
 import java.lang.reflect.Method;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 

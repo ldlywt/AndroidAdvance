@@ -1,8 +1,6 @@
 package com.ldlywt.androidadvancedemo.ui.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.AppCompatImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -12,6 +10,9 @@ import com.ldlywt.views.RecyclerViewBanner;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.fragment.app.Fragment;
 
 /**
  * <pre>

@@ -2,8 +2,9 @@ package com.ldlywt.base.utils;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
+
+import androidx.core.content.ContextCompat;
 
 /**
  * <pre>

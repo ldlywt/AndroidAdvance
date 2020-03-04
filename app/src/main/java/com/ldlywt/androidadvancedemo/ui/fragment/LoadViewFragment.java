@@ -2,13 +2,14 @@ package com.ldlywt.androidadvancedemo.ui.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Toast;
 
 import com.ldlywt.androidadvancedemo.R;
 import com.ldlywt.base.view.BaseFragment;
 import com.ldlywt.base.widget.loadingview.XPageStateView;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * <pre>
