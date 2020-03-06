@@ -114,3 +114,11 @@ XEventBus 就只有四个类，如下：
 - 从sd中加载apk
 - hook AMS
 - hook PMS
+
+### 内存优化
+
+- MemoryHandler
+    每隔一分钟监控应用内存，如果内存占用超过了80%，回调 `onLowMemory()` 方法。
+    
+> 触顶率：可以反映 Java 内存的使用情况，如果超过 85% 最大堆限制，GC 会变得更加频繁，容易造成 OOM 和卡顿。
+  内存 UV 触顶率 = Java 堆占用超过最大堆限制的 85% 的 UV / 采集 UV

@@ -2,6 +2,7 @@ package com.ldlywt.androidadvance;
 
 import com.ldlywt.androidadvance.exception.GlobalCrashException;
 import com.ldlywt.androidadvance.http.OKHttpEngine;
+import com.ldlywt.androidadvance.menory.MemoryHandler;
 import com.ldlywt.base.BaseApp;
 import com.ldlywt.base.XFrame;
 import com.orhanobut.logger.AndroidLogAdapter;
@@ -34,6 +35,14 @@ public class App extends BaseApp {
          * GlideImageLoader为你的图片加载框架实现类
          */
 //        XFrame.initXImageLoader(new GlideImageLoader(getApplicationContext());
+        MemoryHandler.startMonitorLowMemory();
+        MemoryHandler.setMemoryWarmingCallback(new MemoryHandler.IMemoryWarmingCallback() {
+            @Override
+            public void onLowMemory() {
+                //内存占用超过80%是调用，释放一些内存占用
+                //ImageLoader.clearAllMemoryCaches();
+            }
+        });
     }
 
     private void initLog() {
