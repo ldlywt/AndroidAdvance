@@ -3,7 +3,7 @@ package com.ldlywt.androidadvance.ui.fragment.maintab
 import android.content.Intent
 import android.os.Bundle
 import com.ldlywt.androidadvance.R
-import com.ldlywt.androidadvance.ui.TestActivity
+import com.ldlywt.androidadvance.aidl.AidlActivity
 import com.ldlywt.base.view.BaseFragment
 import kotlinx.android.synthetic.main.fragment_mine.*
 
@@ -24,7 +24,7 @@ class MineFragment : BaseFragment() {
     override fun initData(savedInstanceState: Bundle?) {}
     override fun initView() {
         startActivity.setOnClickListener {
-            startActivity(Intent(activity, TestActivity::class.java))
+            startActivity(Intent(activity, AidlActivity::class.java))
         }
     }
 
