@@ -6,18 +6,36 @@
     android:orientation="vertical">
 
     <FrameLayout
+        android:visibility="gone"
         android:id="@+id/fl_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <View
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_page2"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@android:color/darker_gray" />
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+
+    <com.flyco.tablayout.CommonTabLayout
+        android:id="@+id/tab"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        app:tl_indicator_color="#2C97DE"
+        app:tl_indicator_height="0dp"
+        app:tl_textSelectColor="#2C97DE"
+        app:tl_textUnselectColor="#66000000"
+        app:tl_textsize="12sp"
+        app:tl_underline_color="#DDDDDD"
+        app:tl_underline_height="1dp"/>
+
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/bottom_tab"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:tabIndicatorHeight="0dp"

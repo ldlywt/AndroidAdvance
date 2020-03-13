@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.util.FragmentUtils;
 import com.blankj.utilcode.util.SizeUtils;
+import com.flyco.tablayout.listener.CustomTabEntity;
+import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.google.android.material.tabs.TabLayout;
 import com.ldlywt.androidadvance.R;
 import com.ldlywt.androidadvance.databinding.ActivityMainBinding;
@@ -19,7 +21,12 @@ import com.ldlywt.xeventbus.ThreadMode;
 import com.ldlywt.xeventbus.XEventBus;
 import com.orhanobut.logger.Logger;
 
+import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 /**
  * <pre>
@@ -51,8 +58,48 @@ public class MainActivity extends BaseActivity {
 
         mBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(mBinding.getRoot());
+
         mFragments = MainTabData.getFragments("Main");
 
+        mBinding.viewPage2.setAdapter(new FragmentStateAdapter(this) {
+            @NonNull
+            @Override
+            public Fragment createFragment(int position) {
+                return mFragments[position];
+            }
+
+            @Override
+            public int getItemCount() {
+                return mFragments.length;
+            }
+        });
+
+
+        mBinding.tab.setTabData(MainTabData.getTabV2());
+        mBinding.tab.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelect(int position) {
+                mBinding.viewPage2.setCurrentItem(position);
+            }
+
+            @Override
+            public void onTabReselect(int position) {
+            }
+        });
+
+        mBinding.viewPage2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                mBinding.tab.setCurrentTab(position);
+            }
+        });
+//        mBinding.viewPage2.setUserInputEnabled(false);
+
+//        initTabWayOne();
+    }
+
+    private void initTabWayOne() {
         FragmentUtils.add(getSupportFragmentManager(), mFragments, R.id.fl_container, curIndex);
         mBinding.bottomTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

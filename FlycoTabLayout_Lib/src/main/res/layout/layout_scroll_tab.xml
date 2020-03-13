@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_tab_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            tools:text="推荐"
+            android:singleLine="true"/>
+
+        <View
+            android:layout_below="@+id/tv_tab_title"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/indicator"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/shape_rounded_rectangle"
+            android:layout_width="20dp"
+            android:layout_height="3dp"/>
+
+        <com.flyco.tablayout.widget.MsgView
+            android:id="@+id/rtv_msg_tip"
+            xmlns:mv="http://schemas.android.com/apk/res-auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="11.5sp"
+            android:visibility="gone"
+            mv:mv_backgroundColor="#FD481F"
+            mv:mv_isRadiusHalfHeight="true"
+            mv:mv_strokeColor="#ffffff"
+            mv:mv_strokeWidth="1dp"/>
+    </RelativeLayout>
+
+
+</FrameLayout>
