@@ -1,6 +1,7 @@
 package com.ldlywt.base.view;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
@@ -10,6 +11,7 @@ import com.ldlywt.base.widget.CommonTextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.viewbinding.ViewBinding;
 
 /**
  * <pre>
@@ -20,23 +22,24 @@ import androidx.core.content.ContextCompat;
  *     version: 1.0
  * </pre>
  */
-public abstract class BaseActivity extends AppCompatActivity implements ICallback{
+public abstract class BaseActivity extends AppCompatActivity{
 
     protected BaseActivity mActivity = BaseActivity.this;
     private CommonTextView mTitle;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         hideActionBar();
-        if (getLayoutId() > 0) {
-            setContentView(getLayoutId());
-        }
         initTitle();
         initView();
         initData(savedInstanceState);
     }
+
+    //返回布局文件id
+    public abstract void initView();
+    //初始化数据
+    public abstract void initData(Bundle savedInstanceState);
 
     protected void hideActionBar() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);

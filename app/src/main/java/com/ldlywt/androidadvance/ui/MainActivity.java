@@ -10,6 +10,7 @@ import com.blankj.utilcode.util.FragmentUtils;
 import com.blankj.utilcode.util.SizeUtils;
 import com.google.android.material.tabs.TabLayout;
 import com.ldlywt.androidadvance.R;
+import com.ldlywt.androidadvance.databinding.ActivityMainBinding;
 import com.ldlywt.androidadvance.utils.MainTabData;
 import com.ldlywt.base.view.BaseActivity;
 import com.ldlywt.base.widget.CommonTextView;
@@ -33,14 +34,9 @@ import androidx.fragment.app.Fragment;
 public class MainActivity extends BaseActivity {
 
 
-    private TabLayout mTabLayout;
     private Fragment[] mFragments;
     private int curIndex;
-
-    @Override
-    public int getLayoutId() {
-        return R.layout.activity_main;
-    }
+    private com.ldlywt.androidadvance.databinding.ActivityMainBinding mBinding;
 
     @Override
     public void initData(Bundle savedInstanceState) {
@@ -52,16 +48,19 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView() {
+
+        mBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(mBinding.getRoot());
         mFragments = MainTabData.getFragments("Main");
+
         FragmentUtils.add(getSupportFragmentManager(), mFragments, R.id.fl_container, curIndex);
-        mTabLayout = findViewById(R.id.bottom_tab);
-        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        mBinding.bottomTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 showCurrentFragment(tab.getPosition());
                 // Tab 选中之后，改变各个Tab的状态
-                for (int i = 0; i < mTabLayout.getTabCount(); i++) {
-                    View view = mTabLayout.getTabAt(i).getCustomView();
+                for (int i = 0; i < mBinding.bottomTab.getTabCount(); i++) {
+                    View view = mBinding.bottomTab.getTabAt(i).getCustomView();
                     ImageView icon = (ImageView) view.findViewById(R.id.tab_content_image);
                     TextView text = (TextView) view.findViewById(R.id.tab_content_text);
                     if (i == tab.getPosition()) { // 选中状态
@@ -86,7 +85,7 @@ public class MainActivity extends BaseActivity {
         });
         // 提供自定义的布局添加Tab
         for (int i = 0; i < 4; i++) {
-            mTabLayout.addTab(mTabLayout.newTab().setCustomView(MainTabData.getTabView(this, i)));
+            mBinding.bottomTab.addTab(mBinding.bottomTab.newTab().setCustomView(MainTabData.getTabView(this, i)));
         }
     }
 
